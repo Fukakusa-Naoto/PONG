@@ -12,12 +12,14 @@
 #pragma once
 
 
-// 構造体の宣言 ============================================================
-
+// ヘッダファイルの読み込み =================================================
+// <自作ヘッダファイル>
+#include "GameObject.h"
 
 
 // 構造体の定義 ============================================================
 struct Tag_Paddle
 {
-	//GameObject gameObject;
+	GameObject gameObject;
 };
+typedef struct Tag_Paddle Paddle;

@@ -79,6 +79,9 @@
     <ClCompile Include="Game\Scenes\TitleScene.cpp">
       <Filter>Game\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="Libralies\MyLibrary\Collision\CollisionManager.cpp">
+      <Filter>Library\MyLibrary\Collision</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\GameMain.h">

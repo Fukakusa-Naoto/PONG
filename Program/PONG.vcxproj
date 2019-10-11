@@ -99,6 +99,7 @@
     <ClCompile Include="Libralies\DxLibHelper\GameLibMath.cpp" />
     <ClCompile Include="Libralies\DxLibHelper\GameLibSystem.cpp" />
     <ClCompile Include="Libralies\DxLibHelper\GameLibTime.cpp" />
+    <ClCompile Include="Libralies\MyLibrary\Collision\CollisionManager.cpp" />
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,7 @@
 //__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/
-//! @file		MyLibrary.h
+//! @file		CollisionManager.h
 //!
-//! @summary	自作ライブラリのヘッダファイル
+//! @summary	衝突判定に関するヘッダファイル
 //!
 //! @date		2019.10.11
 //!
@@ -12,9 +12,4 @@
 #pragma once
 
 
-
-// ヘッダファイルの読み込み =================================================
-#include "Math/Vector2.h"
-#include "Graphics/Sprite.h"
-#include "Collision/BoxCollider.h"
-#include "Collision/CollisionManager.h"
+// 構造体の宣言 ============================================================

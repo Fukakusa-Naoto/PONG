@@ -43,6 +43,9 @@
     <Filter Include="Library\MyLibrary\Graphics">
       <UniqueIdentifier>{c47586ab-0384-4850-8fd0-26a7c4cf8b63}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Library\MyLibrary\Collision">
+      <UniqueIdentifier>{c69cd7dd-0aeb-4e7a-bcb1-3a32b00a1cb4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinMain.cpp" />
@@ -125,6 +128,12 @@
     </ClInclude>
     <ClInclude Include="Libralies\MyLibrary\Graphics\Sprite.h">
       <Filter>Library\MyLibrary\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Libralies\MyLibrary\Collision\BoxCollider.h">
+      <Filter>Library\MyLibrary\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Libralies\MyLibrary\Collision\CollisionManager.h">
+      <Filter>Library\MyLibrary\Collision</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

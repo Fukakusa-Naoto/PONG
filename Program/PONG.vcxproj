@@ -113,6 +113,8 @@
     <ClInclude Include="Libralies\DxLibHelper\GameLibSystem.h" />
     <ClInclude Include="Libralies\DxLibHelper\GameLibTime.h" />
     <ClInclude Include="Libralies\GameLib.h" />
+    <ClInclude Include="Libralies\MyLibrary\Collision\BoxCollider.h" />
+    <ClInclude Include="Libralies\MyLibrary\Collision\CollisionManager.h" />
     <ClInclude Include="Libralies\MyLibrary\Graphics\Sprite.h" />
     <ClInclude Include="Libralies\MyLibrary\Math\Vector2.h" />
     <ClInclude Include="Libralies\MyLibrary\MyLibrary.h" />

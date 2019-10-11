@@ -1,7 +1,7 @@
 //__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/
-//! @file		LogoScene.cpp
+//! @file		TitleScene.cpp
 //!
-//! @summary	ロゴシーンシーン関連のソースファイル
+//! @summary	タイトルシーンシーン関連のソースファイル
 //!
 //! @date		2019.10.11
 //!
@@ -10,7 +10,7 @@
 
 // ヘッダファイルの読み込み =================================================
 // <自作ヘッダファイル>
-#include "LogoScene.h"
+#include "TitleScene.h"
 #include "SceneManager.h"
 
 
@@ -20,70 +20,64 @@
 
 
 // グローバル変数の定義 =====================================================
-// 時間経過カウント
-float g_timeCount;
+
 
 
 // 関数の定義 ==============================================================
 //--------------------------------------------------------------------
-//! @summary   ロゴシーンの初期化処理
+//! @summary   タイトルシーンの初期化処理
 //!
 //! @parameter [void] なし
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void InitializeLogoScene(void)
+void InitializeTitleScene(void)
 {
-	// カウントの初期化
-	g_timeCount = 0.0f;
 }
 
 
 
 //--------------------------------------------------------------------
-//! @summary   ロゴシーンの更新処理
+//! @summary   タイトルシーンの更新処理
 //!
 //! @parameter [void] なし
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void UpdateLogoScene(void)
+void UpdateTitleScene(void)
 {
-	// カウントの更新
-	g_timeCount += GetFrameDeltaTime();
-
-	// 3秒が経過する
-	if (g_timeCount >= CHANGE_SCENE_TIME)
+	// スペースキーが入力される
+	if (IsButtonPressed(PAD_INPUT_10))
 	{
-		// タイトルシーンへ遷移する
-		ChangeScene(SCENE_TITLE);
+		// プレイシーンへ遷移する
+		ChangeScene(SCENE_PLAY);
 	}
 }
 
 
 
 //--------------------------------------------------------------------
-//! @summary   ロゴシーンの描画処理
+//! @summary   タイトルシーンの描画処理
 //!
 //! @parameter [void] なし
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void RenderLogoScene(void)
+void RenderTitleScene(void)
 {
-	DrawFormatString(0, 0, COLOR_WHITE, "LOGO");
+	DrawFormatString(0, 0, COLOR_WHITE, "Title");
 }
 
 
 
 //--------------------------------------------------------------------
-//! @summary   ロゴシーンの終了処理
+//! @summary   タイトルシーンの終了処理
 //!
 //! @parameter [void] なし
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void FinalizeLogoScene(void)
+void FinalizeTitleScene(void)
 {
 
 }

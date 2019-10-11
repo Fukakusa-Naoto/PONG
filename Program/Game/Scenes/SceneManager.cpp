@@ -13,6 +13,7 @@
 #include "SceneManager.h"
 #include "PlayScene.h"
 #include "LogoScene.h"
+#include "TitleScene.h"
 
 
 // グローバル変数の宣言 =====================================================
@@ -77,6 +78,9 @@ void InitializeScene(void)
 	case SCENE_LOGO:	// ロゴ
 		InitializeLogoScene();
 		break;
+	case SCENE_TITLE:	// タイトル
+		InitializeTitleScene();
+		break;
 	default:
 		// 何もしない
 		break;
@@ -106,6 +110,9 @@ void UpdateScene(void)
 	case SCENE_LOGO:	// ロゴ
 		UpdateLogoScene();
 		break;
+	case SCENE_TITLE:	// タイトル
+		UpdateTitleScene();
+		break;
 	default:
 		// 何もしない
 		break;
@@ -132,6 +139,9 @@ void RenderScene(void)
 	case SCENE_LOGO:	// ロゴ
 		RenderLogoScene();
 		break;
+	case SCENE_TITLE:	// タイトル
+		RenderTitleScene();
+		break;
 	default:
 		// 何もしない
 		break;
@@ -157,6 +167,9 @@ void FinalizeScene(void)
 		break;
 	case SCENE_LOGO:	// ロゴ
 		FinalizeLogoScene();
+		break;
+	case SCENE_TITLE:	// タイトル
+		FinalizeTitleScene();
 		break;
 	default:
 		// 何もしない

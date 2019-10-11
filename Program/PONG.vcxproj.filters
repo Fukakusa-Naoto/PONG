@@ -40,6 +40,9 @@
     <Filter Include="Library\MyLibrary\Math">
       <UniqueIdentifier>{7581550f-da7b-45c2-bb81-6ed1fc3098b4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Library\MyLibrary\Graphics">
+      <UniqueIdentifier>{c47586ab-0384-4850-8fd0-26a7c4cf8b63}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinMain.cpp" />
@@ -113,6 +116,15 @@
     </ClInclude>
     <ClInclude Include="Game\Scenes\TitleScene.h">
       <Filter>Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Libralies\MyLibrary\Math\Vector2.h">
+      <Filter>Library\MyLibrary\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Libralies\MyLibrary\MyLibrary.h">
+      <Filter>Library\MyLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="Libralies\MyLibrary\Graphics\Sprite.h">
+      <Filter>Library\MyLibrary\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

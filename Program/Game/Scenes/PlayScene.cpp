@@ -59,7 +59,9 @@ void UpdatePlayScene(void)
 //--------------------------------------------------------------------
 void RenderPlayScene(void)
 {
-	DrawString(0, 0, "PLAY", COLOR_WHITE);
+	Vector2 a;
+	a = GetVector2One();
+	DrawFormatString(0, 0, COLOR_WHITE, "x:%f, y:%f", a.x, a.y);
 }
 
 
@@ -73,5 +75,4 @@ void RenderPlayScene(void)
 //--------------------------------------------------------------------
 void FinalizePlayScene(void)
 {
-
 }

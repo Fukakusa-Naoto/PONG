@@ -28,7 +28,7 @@
 void InitializeGame(void)
 {
 	// 最初のシーンを設定
-	SetStartScene(SCENE_LOGO);
+	SetStartScene(SCENE_PLAY);
 
 	// シーンの初期化処理
 	InitializeScene();

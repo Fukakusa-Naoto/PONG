@@ -1,7 +1,7 @@
 //__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/
-//! @file		GameMain.cpp
+//! @file		PlayScene.cpp
 //!
-//! @summary	ゲーム関連のソースファイル
+//! @summary	プレイシーン関連のソースファイル
 //!
 //! @date		2019.10.11
 //!
@@ -10,8 +10,7 @@
 
 // ヘッダファイルの読み込み =================================================
 // <自作ヘッダファイル>
-#include "GameMain.h"
-#include "Scenes/SceneManager.h"
+#include "PlayScene.h"
 
 
 // グローバル変数の定義 =====================================================
@@ -25,13 +24,8 @@
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void InitializeGame(void)
+void InitializePlayScene(void)
 {
-	// 最初のシーンを設定
-	SetStartScene(SCENE_PLAY);
-
-	// シーンの初期化処理
-	InitializeScene();
 }
 
 
@@ -43,10 +37,8 @@ void InitializeGame(void)
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void UpdateGame(void)
+void UpdatePlayScene(void)
 {
-	// シーンの更新処理
-	UpdateScene();
 }
 
 
@@ -58,10 +50,8 @@ void UpdateGame(void)
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void RenderGame(void)
+void RenderPlayScene(void)
 {
-	// シーンの描画処理
-	RenderScene();
 }
 
 
@@ -73,8 +63,7 @@ void RenderGame(void)
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void FinalizeGame(void)
+void FinalizePlayScene(void)
 {
-	// シーンの終了処理
-	FinalizeScene();
+
 }

@@ -1,17 +1,16 @@
 //__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/
 //! @file   WinMain.cpp
 //!
-//! @brief  ゲームプログラムのエントリーポイントのソースファイル
+//! @brief  ゲームプログラムのエントリーポイント
 //!
-//! @date   2017/3/17
+//! @date   2019/3/26
 //!
-//! @author 高木 晋
+//! @author S.Takaki
 //__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/
 
 // ヘッダファイルの読み込み ================================================
 #include "Game\GameMain.h"
 #include "Resources\Icon\Icon.h"
-
 
 
 
@@ -69,14 +68,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	// 描画先を裏画面に設定
 	SetDrawScreen(DX_SCREEN_BACK);
 
-	
+
 	// ゲームの処理
 	InitializeGame();    // ゲームの初期化処理
-	
+
 	while (!ProcessMessage() && !CheckHitKey(EXIT_KEY))
-	{ 
-		UpdateFrameTimer();    // フレームタイマーの更新
-		
+	{
+		UpdateSystem();        // システムの更新
+
 		UpdateGame();          // ゲームの更新処理
 		RenderGame();          // ゲームの描画処理
 
@@ -88,7 +87,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 
 	// DXライブラリの終了処理
-	DxLib_End();
+	if (DxLib_End() == -1)
+	{
+		return -1;    // エラーが起きたら直ちに終了
+	}
 
 
 	return 0;    // 正常終了

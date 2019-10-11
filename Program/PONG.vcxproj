@@ -90,40 +90,29 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game\GameMain.cpp" />
-    <ClCompile Include="Libralies\DxLibHelper\FrameTimer.cpp" />
-    <ClCompile Include="Libralies\DxLibHelper\GameGraphics.cpp" />
-    <ClCompile Include="Libralies\DxLibHelper\GameMath.cpp" />
-    <ClCompile Include="Libralies\DxLibHelper\GameSystem.cpp" />
+    <ClCompile Include="Libralies\DxLibHelper\GameLibGraphics.cpp" />
+    <ClCompile Include="Libralies\DxLibHelper\GameLibInput.cpp" />
+    <ClCompile Include="Libralies\DxLibHelper\GameLibMath.cpp" />
+    <ClCompile Include="Libralies\DxLibHelper\GameLibSystem.cpp" />
+    <ClCompile Include="Libralies\DxLibHelper\GameLibTime.cpp" />
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\GameMain.h" />
-    <ClInclude Include="Libralies\DxLibHelper\FrameTimer.h" />
-    <ClInclude Include="Libralies\DxLibHelper\GameGraphics.h" />
-    <ClInclude Include="Libralies\DxLibHelper\GameMath.h" />
-    <ClInclude Include="Libralies\DxLibHelper\GameSystem.h" />
+    <ClInclude Include="Libralies\DxLibHelper\GameLibGraphics.h" />
+    <ClInclude Include="Libralies\DxLibHelper\GameLibInput.h" />
+    <ClInclude Include="Libralies\DxLibHelper\GameLibMath.h" />
+    <ClInclude Include="Libralies\DxLibHelper\GameLibSystem.h" />
+    <ClInclude Include="Libralies\DxLibHelper\GameLibTime.h" />
     <ClInclude Include="Libralies\GameLib.h" />
     <ClInclude Include="Libralies\Utilities\MemoryLeakDetector.h" />
     <ClInclude Include="Resources\Icon\Icon.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Icon\Icon.ico" />
-    <Image Include="Resources\Images\FINISH.png" />
-    <Image Include="Resources\Images\LOST.png" />
-    <Image Include="Resources\Images\START.png" />
-    <Image Include="Resources\Images\TridentLogo.png" />
-    <Image Include="Resources\Images\WIN.png" />
-    <Image Include="Resources\Images\ゲーム数字.png" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resources\Icon\Icon.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Sounds\SE00.ogg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Media Include="Resources\Sounds\se_maoudamashii_retro16.mp3" />
-    <Media Include="Resources\Sounds\ニコニコメドレー 摩天楼.mp3" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

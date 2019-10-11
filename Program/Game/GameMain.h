@@ -26,17 +26,6 @@
 #define SCREEN_CENTER_X (SCREEN_WIDTH  / 2)    // 画面の中央(X座標)
 #define SCREEN_CENTER_Y (SCREEN_HEIGHT / 2)    // 画面の中央(Y座標)
 
-// 強制終了キー
-#define EXIT_KEY       KEY_INPUT_ESCAPE
-
-
-//パドルのサイズ
-#define PADDLE_WIDTH 8		//幅
-#define PADDLE_HEIGHT 28		//高さ
-
-
-
-
 
 // 関数の宣言 ==============================================================
 

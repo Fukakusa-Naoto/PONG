@@ -30,6 +30,30 @@ typedef struct Tag_Vector2Int Vector2Int;
 
 // 関数の定義 ==============================================================
 //--------------------------------------------------------------------
+//! @summary   Vector2を作成する
+//!
+//! @parameter [x] xの値
+//! @parameter [y] yの値
+//!
+//! @return    x,yを元に作られたVector2
+//--------------------------------------------------------------------
+static Vector2 CreateVector2(float x, float y)
+{
+	Vector2 v = { x, y };
+	return v;
+}
+
+
+
+static Vector2Int CreateVector2Int(int x, int y)
+{
+	Vector2Int v = { x, y };
+	return v;
+}
+
+
+
+//--------------------------------------------------------------------
 //! @summary   Vector2のx,yの値が0のVector2を返す
 //!
 //! @parameter [void] なし
@@ -63,7 +87,7 @@ static Vector2Int GetVector2IntZero()
 //--------------------------------------------------------------------
 static Vector2 GetVector2One()
 {
-	Vector2 zero = { 1.0f, 1.0f };
+	Vector2 zero = CreateVector2(1.0f, 1.0f);
 	return zero;
 }
 
@@ -71,7 +95,7 @@ static Vector2 GetVector2One()
 
 static Vector2Int GetVector2IntOne()
 {
-	Vector2Int zero = { 1, 1 };
+	Vector2Int zero = CreateVector2Int(1, 1);
 	return zero;
 }
 

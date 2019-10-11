@@ -12,9 +12,12 @@
 // <自作ヘッダファイル>
 #include "PlayScene.h"
 #include "SceneManager.h"
+#include "../Objects/Paddle.h"
 
 
 // グローバル変数の定義 =====================================================
+// 左パドル
+Paddle g_LeftPaddle;
 
 
 // 関数の定義 ==============================================================
@@ -27,6 +30,8 @@
 //--------------------------------------------------------------------
 void InitializePlayScene(void)
 {
+	// 左パドルの初期化処理
+	InitializePaddle(&g_LeftPaddle, &CreateVector2(LEFT_PADDLE_START_POSITION_X, LEFT_PADDLE_START_POSITION_Y));
 }
 
 
@@ -40,6 +45,9 @@ void InitializePlayScene(void)
 //--------------------------------------------------------------------
 void UpdatePlayScene(void)
 {
+	// 左パドルの更新処理
+	UpdatePaddle(&g_LeftPaddle);
+
 	// スペースキーが入力される
 	if (IsButtonPressed(PAD_INPUT_10))
 	{
@@ -59,9 +67,8 @@ void UpdatePlayScene(void)
 //--------------------------------------------------------------------
 void RenderPlayScene(void)
 {
-	Vector2 a;
-	a = GetVector2One();
-	DrawFormatString(0, 0, COLOR_WHITE, "x:%f, y:%f", a.x, a.y);
+	// 左パドルの描画処理
+	RenderPaddle(&g_LeftPaddle);
 }
 
 
@@ -75,4 +82,5 @@ void RenderPlayScene(void)
 //--------------------------------------------------------------------
 void FinalizePlayScene(void)
 {
+	DestroyPaddle(&g_LeftPaddle);
 }

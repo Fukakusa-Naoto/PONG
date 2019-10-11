@@ -26,8 +26,8 @@
 //--------------------------------------------------------------------
 void InitializeGameObject(GameObject* gameObject, const Vector2* position, const Vector2* velocity, unsigned int state)
 {
-	gameObject->position = { position->x, position->y };
-	gameObject->velocity = { velocity->x, velocity->y };
+	gameObject->position = CreateVector2(position->x, position->y);
+	gameObject->velocity = CreateVector2(velocity->x, velocity->y);
 	gameObject->state = state;
 }
 

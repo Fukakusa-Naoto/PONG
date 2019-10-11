@@ -30,13 +30,49 @@ typedef struct Tag_PrimitiveBox PrimitiveBox;
 
 // 関数の定義 ==============================================================
 //--------------------------------------------------------------------
+//! @summary   矩形の初期化処理
+//!
+//! @parameter [box] 初期化する矩形データ
+//! @parameter [position] 座標
+//! @parameter [size] サイズ
+//! @parameter [color] 色
+//! @parameter [fillFlag] 塗りつぶしフラグ（TRUE:塗りつぶす, FALSE:塗りつぶさない）
+//!
+//! @return    なし
+//--------------------------------------------------------------------
+static void InitializePrimitiveBox(PrimitiveBox* box, const Vector2* position, const Vector2* size, unsigned int color, BOOL fillFlag)
+{
+	box->position = CreateVector2(position->x, position->y);
+	box->size = CreateVector2(size->x, size->y);
+	box->color = color;
+	box->fillFlag = fillFlag;
+}
+
+
+
+//--------------------------------------------------------------------
+//! @summary   矩形の座標の設定
+//!
+//! @parameter [box] 設定する矩形データ
+//! @parameter [position] 座標
+//!
+//! @return    なし
+//--------------------------------------------------------------------
+static void SetPositionPrimitiveBox(PrimitiveBox* box, const Vector2* position)
+{
+	box->position = CreateVector2(position->x, position->y);
+}
+
+
+
+//--------------------------------------------------------------------
 //! @summary   矩形の描画
 //!
 //! @parameter [box] 描画する矩形データ
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-static void DrawBox(const PrimitiveBox* box)
+static void DrawPrimitiveBox(const PrimitiveBox* box)
 {
 	// 左上、右下の計算
 	float top = box->position.y - (box->size.y * 0.5f);

@@ -26,6 +26,38 @@ typedef struct Tag_BoxCollider BoxCollider;
 
 // 関数の定義 ==============================================================
 //--------------------------------------------------------------------
+//! @summary   BoxColliderの初期化処理
+//!
+//! @parameter [collider] 初期化するコライダー
+//! @parameter [position] 座標
+//! @parameter [size] サイズ
+//!
+//! @return    なし
+//--------------------------------------------------------------------
+static void InitializeBoxCollider(BoxCollider* collider, const Vector2* position, const Vector2* size)
+{
+	collider->position = CreateVector2(position->x, position->y);
+	collider->size = CreateVector2(size->x, size->y);
+}
+
+
+
+//--------------------------------------------------------------------
+//! @summary   BoxColliderの座標の設定
+//!
+//! @parameter [collider] 設定するコライダー
+//! @parameter [position] 座標
+//!
+//! @return    なし
+//--------------------------------------------------------------------
+static void SetPositionBoxCollider(BoxCollider* collider, const Vector2* position)
+{
+	collider->position = CreateVector2(position->x, position->y);
+}
+
+
+
+//--------------------------------------------------------------------
 //! @summary   BoxColliderのデバッグ表示
 //!
 //! @parameter [collider] 表示するコライダーデータ

@@ -88,6 +88,9 @@
     <ClCompile Include="Game\Objects\GameObject.cpp">
       <Filter>Game\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Objects\Paddle.cpp">
+      <Filter>Game\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\GameMain.h">
@@ -146,6 +149,12 @@
     </ClInclude>
     <ClInclude Include="Game\Objects\GameObject.h">
       <Filter>Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Objects\Paddle.h">
+      <Filter>Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Libralies\MyLibrary\Graphics\PrimitiveBox.h">
+      <Filter>Library\MyLibrary\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

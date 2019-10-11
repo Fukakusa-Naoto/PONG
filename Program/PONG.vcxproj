@@ -91,6 +91,7 @@
   <ItemGroup>
     <ClCompile Include="Game\GameMain.cpp" />
     <ClCompile Include="Game\Objects\GameObject.cpp" />
+    <ClCompile Include="Game\Objects\Paddle.cpp" />
     <ClCompile Include="Game\Scenes\LogoScene.cpp" />
     <ClCompile Include="Game\Scenes\PlayScene.cpp" />
     <ClCompile Include="Game\Scenes\SceneManager.cpp" />
@@ -106,6 +107,7 @@
   <ItemGroup>
     <ClInclude Include="Game\GameMain.h" />
     <ClInclude Include="Game\Objects\GameObject.h" />
+    <ClInclude Include="Game\Objects\Paddle.h" />
     <ClInclude Include="Game\Scenes\LogoScene.h" />
     <ClInclude Include="Game\Scenes\PlayScene.h" />
     <ClInclude Include="Game\Scenes\SceneManager.h" />
@@ -118,6 +120,7 @@
     <ClInclude Include="Libralies\GameLib.h" />
     <ClInclude Include="Libralies\MyLibrary\Collision\BoxCollider.h" />
     <ClInclude Include="Libralies\MyLibrary\Collision\CollisionManager.h" />
+    <ClInclude Include="Libralies\MyLibrary\Graphics\PrimitiveBox.h" />
     <ClInclude Include="Libralies\MyLibrary\Graphics\Sprite.h" />
     <ClInclude Include="Libralies\MyLibrary\Math\Vector2.h" />
     <ClInclude Include="Libralies\MyLibrary\MyLibrary.h" />

@@ -17,7 +17,9 @@
 
 // グローバル変数の定義 =====================================================
 // 左パドル
-Paddle g_LeftPaddle;
+Paddle g_leftPaddle;
+// 右パドル
+Paddle g_rightPaddle;
 
 
 // 関数の定義 ==============================================================
@@ -31,7 +33,9 @@ Paddle g_LeftPaddle;
 void InitializePlayScene(void)
 {
 	// 左パドルの初期化処理
-	InitializePaddle(&g_LeftPaddle, &CreateVector2(LEFT_PADDLE_START_POSITION_X, LEFT_PADDLE_START_POSITION_Y));
+	InitializePaddle(&g_leftPaddle, &CreateVector2(LEFT_PADDLE_START_POSITION_X, LEFT_PADDLE_START_POSITION_Y));
+	// 右パドルの初期化処理
+	InitializePaddle(&g_rightPaddle, &CreateVector2(RIGHT_PADDLE_START_POSITION_X, RIGHT_PADDLE_START_POSITION_Y));
 }
 
 
@@ -46,14 +50,9 @@ void InitializePlayScene(void)
 void UpdatePlayScene(void)
 {
 	// 左パドルの更新処理
-	UpdatePaddle(&g_LeftPaddle);
-
-	// スペースキーが入力される
-	if (IsButtonPressed(PAD_INPUT_10))
-	{
-		// タイトルシーンへ遷移する
-		ChangeScene(SCENE_TITLE);
-	}
+	UpdatePaddle(&g_leftPaddle);
+	// 右パドルの更新処理
+	UpdatePaddle(&g_rightPaddle);
 }
 
 
@@ -68,7 +67,9 @@ void UpdatePlayScene(void)
 void RenderPlayScene(void)
 {
 	// 左パドルの描画処理
-	RenderPaddle(&g_LeftPaddle);
+	RenderPaddle(&g_leftPaddle);
+	// 右パドルの描画処理
+	RenderPaddle(&g_rightPaddle);
 }
 
 
@@ -82,5 +83,8 @@ void RenderPlayScene(void)
 //--------------------------------------------------------------------
 void FinalizePlayScene(void)
 {
-	DestroyPaddle(&g_LeftPaddle);
+	// 左パドルの削除
+	DestroyPaddle(&g_leftPaddle);
+	// 右パドルの削除
+	DestroyPaddle(&g_rightPaddle);
 }

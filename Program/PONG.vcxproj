@@ -90,6 +90,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game\GameMain.cpp" />
+    <ClCompile Include="Game\Scenes\LogoScene.cpp" />
+    <ClCompile Include="Game\Scenes\PlayScene.cpp" />
+    <ClCompile Include="Game\Scenes\SceneManager.cpp" />
     <ClCompile Include="Libralies\DxLibHelper\GameLibGraphics.cpp" />
     <ClCompile Include="Libralies\DxLibHelper\GameLibInput.cpp" />
     <ClCompile Include="Libralies\DxLibHelper\GameLibMath.cpp" />
@@ -99,6 +102,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\GameMain.h" />
+    <ClInclude Include="Game\Scenes\LogoScene.h" />
+    <ClInclude Include="Game\Scenes\PlayScene.h" />
+    <ClInclude Include="Game\Scenes\SceneManager.h" />
     <ClInclude Include="Libralies\DxLibHelper\GameLibGraphics.h" />
     <ClInclude Include="Libralies\DxLibHelper\GameLibInput.h" />
     <ClInclude Include="Libralies\DxLibHelper\GameLibMath.h" />

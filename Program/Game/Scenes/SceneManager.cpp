@@ -12,6 +12,7 @@
 // <自作ヘッダファイル>
 #include "SceneManager.h"
 #include "PlayScene.h"
+#include "LogoScene.h"
 
 
 // グローバル変数の宣言 =====================================================
@@ -70,8 +71,11 @@ void InitializeScene(void)
 	// シーン別の初期化処理
 	switch (g_currentSceneID)
 	{
-	case SCENE_PLAY:	//プレイ
+	case SCENE_PLAY:	// プレイ
 		InitializePlayScene();
+		break;
+	case SCENE_LOGO:	// ロゴ
+		InitializeLogoScene();
 		break;
 	default:
 		// 何もしない
@@ -96,8 +100,11 @@ void UpdateScene(void)
 	// シーン別の更新処理
 	switch (g_currentSceneID)
 	{
-	case SCENE_PLAY:	//プレイ
+	case SCENE_PLAY:	// プレイ
 		UpdatePlayScene();
+		break;
+	case SCENE_LOGO:	// ロゴ
+		UpdateLogoScene();
 		break;
 	default:
 		// 何もしない
@@ -119,8 +126,11 @@ void RenderScene(void)
 	// シーン別の描画処理
 	switch (g_currentSceneID)
 	{
-	case SCENE_PLAY:	//プレイ
+	case SCENE_PLAY:	// プレイ
 		RenderPlayScene();
+		break;
+	case SCENE_LOGO:	// ロゴ
+		RenderLogoScene();
 		break;
 	default:
 		// 何もしない
@@ -142,8 +152,11 @@ void FinalizeScene(void)
 	// シーン別の終了処理
 	switch (g_currentSceneID)
 	{
-	case SCENE_PLAY:	//プレイ
+	case SCENE_PLAY:	// プレイ
 		FinalizePlayScene();
+		break;
+	case SCENE_LOGO:	// ロゴ
+		FinalizeLogoScene();
 		break;
 	default:
 		// 何もしない

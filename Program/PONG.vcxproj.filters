@@ -31,6 +31,15 @@
       <UniqueIdentifier>{0bbc1464-887f-45a8-9777-15cbd291435f}</UniqueIdentifier>
       <Extensions>wav;ogg;mp3</Extensions>
     </Filter>
+    <Filter Include="Game\Scenes">
+      <UniqueIdentifier>{4d12e364-d7d9-4b0f-98f6-2ad508ee91e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\MyLibrary">
+      <UniqueIdentifier>{483aa8db-c55f-4fbd-82ef-1abd9acdd9c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\MyLibrary\Math">
+      <UniqueIdentifier>{7581550f-da7b-45c2-bb81-6ed1fc3098b4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinMain.cpp" />
@@ -51,6 +60,15 @@
     </ClCompile>
     <ClCompile Include="Libralies\DxLibHelper\GameLibTime.cpp">
       <Filter>Library\DxLibHelper</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scenes\PlayScene.cpp">
+      <Filter>Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scenes\SceneManager.cpp">
+      <Filter>Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scenes\LogoScene.cpp">
+      <Filter>Game\Scenes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +98,15 @@
     </ClInclude>
     <ClInclude Include="Libralies\DxLibHelper\GameLibTime.h">
       <Filter>Library\DxLibHelper</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scenes\PlayScene.h">
+      <Filter>Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scenes\SceneManager.h">
+      <Filter>Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scenes\LogoScene.h">
+      <Filter>Game\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

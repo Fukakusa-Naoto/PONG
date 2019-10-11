@@ -1,7 +1,7 @@
 //__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/
-//! @file		GameMain.cpp
+//! @file		LogoScene.cpp
 //!
-//! @summary	ゲーム関連のソースファイル
+//! @summary	ロゴシーンシーン関連のソースファイル
 //!
 //! @date		2019.10.11
 //!
@@ -10,71 +10,80 @@
 
 // ヘッダファイルの読み込み =================================================
 // <自作ヘッダファイル>
-#include "GameMain.h"
-#include "Scenes/SceneManager.h"
+#include "LogoScene.h"
+#include "SceneManager.h"
+
+
+// 定数の定義 ==============================================================
+// シーン変更までの時間
+#define CHANGE_SCENE_TIME (3.0f)
 
 
 // グローバル変数の定義 =====================================================
+// 時間経過カウント
+float g_timeCount;
 
 
 // 関数の定義 ==============================================================
 //--------------------------------------------------------------------
-//! @summary   ゲームの初期化処理
+//! @summary   ロゴシーンの初期化処理
 //!
 //! @parameter [void] なし
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void InitializeGame(void)
+void InitializeLogoScene(void)
 {
-	// 最初のシーンを設定
-	SetStartScene(SCENE_LOGO);
-
-	// シーンの初期化処理
-	InitializeScene();
+	// カウントの初期化
+	g_timeCount = 0.0f;
 }
 
 
 
 //--------------------------------------------------------------------
-//! @summary   ゲームの更新処理
+//! @summary   ロゴシーンの更新処理
 //!
 //! @parameter [void] なし
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void UpdateGame(void)
+void UpdateLogoScene(void)
 {
-	// シーンの更新処理
-	UpdateScene();
+	// カウントの更新
+	g_timeCount += GetFrameDeltaTime();
+
+	// 3秒が経過する
+	if (g_timeCount >= CHANGE_SCENE_TIME)
+	{
+		// タイトルシーンへ遷移する
+		//ChangeScene(SCENE_TITLE);
+	}
 }
 
 
 
 //--------------------------------------------------------------------
-//! @summary   ゲームの描画処理
+//! @summary   ロゴシーンの描画処理
 //!
 //! @parameter [void] なし
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void RenderGame(void)
+void RenderLogoScene(void)
 {
-	// シーンの描画処理
-	RenderScene();
+	DrawFormatString(0, 0, COLOR_WHITE, "LOGO");
 }
 
 
 
 //--------------------------------------------------------------------
-//! @summary   ゲームの終了処理
+//! @summary   ロゴシーンの終了処理
 //!
 //! @parameter [void] なし
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void FinalizeGame(void)
+void FinalizeLogoScene(void)
 {
-	// シーンの終了処理
-	FinalizeScene();
+
 }

@@ -13,6 +13,7 @@
 #include "PlayScene.h"
 #include "SceneManager.h"
 #include "../Objects/Paddle.h"
+#include "../Objects/Ball.h"
 
 
 // グローバル変数の定義 =====================================================
@@ -20,6 +21,8 @@
 Paddle g_leftPaddle;
 // 右パドル
 Paddle g_rightPaddle;
+// ボール
+Ball g_ball;
 
 
 // 関数の定義 ==============================================================
@@ -36,6 +39,8 @@ void InitializePlayScene(void)
 	InitializePaddle(&g_leftPaddle, &CreateVector2(LEFT_PADDLE_START_POSITION_X, LEFT_PADDLE_START_POSITION_Y));
 	// 右パドルの初期化処理
 	InitializePaddle(&g_rightPaddle, &CreateVector2(RIGHT_PADDLE_START_POSITION_X, RIGHT_PADDLE_START_POSITION_Y));
+	// ボールの初期化処理
+	InitializeBall(&g_ball, &CreateVector2(BALL_START_POSITION_X, BALL_START_POSITION_Y));
 }
 
 
@@ -53,6 +58,8 @@ void UpdatePlayScene(void)
 	UpdatePaddle(&g_leftPaddle);
 	// 右パドルの更新処理
 	UpdatePaddle(&g_rightPaddle);
+	// ボールの更新処理
+	UpdateBall(&g_ball);
 }
 
 
@@ -70,6 +77,8 @@ void RenderPlayScene(void)
 	RenderPaddle(&g_leftPaddle);
 	// 右パドルの描画処理
 	RenderPaddle(&g_rightPaddle);
+	// ボールの初期化処理
+	RenderBall(&g_ball);
 }
 
 
@@ -87,4 +96,6 @@ void FinalizePlayScene(void)
 	DestroyPaddle(&g_leftPaddle);
 	// 右パドルの削除
 	DestroyPaddle(&g_rightPaddle);
+	// ボールの削除
+	DestroyBall(&g_ball);
 }

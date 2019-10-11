@@ -90,6 +90,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game\GameMain.cpp" />
+    <ClCompile Include="Game\Objects\Ball.cpp" />
     <ClCompile Include="Game\Objects\GameObject.cpp" />
     <ClCompile Include="Game\Objects\Paddle.cpp" />
     <ClCompile Include="Game\Scenes\LogoScene.cpp" />
@@ -106,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\GameMain.h" />
+    <ClInclude Include="Game\Objects\Ball.h" />
     <ClInclude Include="Game\Objects\GameObject.h" />
     <ClInclude Include="Game\Objects\Paddle.h" />
     <ClInclude Include="Game\Scenes\LogoScene.h" />

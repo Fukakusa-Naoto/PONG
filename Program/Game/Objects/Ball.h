@@ -1,7 +1,7 @@
 //__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/
-//! @file		Paddle.h
+//! @file		Ball.h
 //!
-//! @summary	パドルに関するヘッダファイル
+//! @summary	ボールに関するヘッダファイル
 //!
 //! @date		2019.10.11
 //!
@@ -19,29 +19,19 @@
 
 
 // 定数の定義 ==============================================================
-// パドルの横幅
-#define PADDLE_WIDTH (8.0f)
-// パドルの高さ
-#define PADDLE_HEIGHT (28.0f)
+// ボールの横幅
+#define BALL_WIDTH (8.0f)
+// ボールの高さ
+#define BALL_HEIGHT (8.0f)
 
-// パドルの移動制限のエリア X
-#define PADDLE_LIMIT_AREA_X (64.0f)
-// パドルの移動制限のエリア Y
-#define PADDLE_LIMIT_AREA_Y (PADDLE_HEIGHT)
-
-// 左パドルの初期位置 X
-#define LEFT_PADDLE_START_POSITION_X (PADDLE_LIMIT_AREA_X)
-// 左パドルの初期位置 Y
-#define LEFT_PADDLE_START_POSITION_Y (SCREEN_CENTER_Y)
-
-// 右パドルの初期位置 X
-#define RIGHT_PADDLE_START_POSITION_X (SCREEN_WIDTH - PADDLE_LIMIT_AREA_X)
-// 左パドルの初期位置 Y
-#define RIGHT_PADDLE_START_POSITION_Y (SCREEN_CENTER_Y)
+// ボールの初期位置 X
+#define BALL_START_POSITION_X (SCREEN_CENTER_X)
+// ボールの初期位置 Y
+#define BALL_START_POSITION_Y (SCREEN_CENTER_Y)
 
 
 // 構造体の定義 ============================================================
-struct Tag_Paddle
+struct Tag_Ball
 {
 	GameObject gameObject;
 	// 描画
@@ -49,50 +39,50 @@ struct Tag_Paddle
 	// 衝突判定
 	BoxCollider boxCollider;
 };
-typedef struct Tag_Paddle Paddle;
+typedef struct Tag_Ball Ball;
 
 
 
 // 関数の宣言 ==============================================================
 //--------------------------------------------------------------------
-//! @summary   パドルの初期化処理
+//! @summary   ボールの初期化処理
 //!
-//! @parameter [paddle] 初期化するパドル
+//! @parameter [ball] 初期化するボール
 //! @parameter [position] 座標
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void InitializePaddle(Paddle* paddle, const Vector2* position);
+void InitializeBall(Ball* ball, const Vector2* position);
 
 
 
 //--------------------------------------------------------------------
-//! @summary   パドルの更新処理
+//! @summary   ボールの更新処理
 //!
-//! @parameter [paddle] 更新するパドル
-//!
-//! @return    なし
-//--------------------------------------------------------------------
-void UpdatePaddle(Paddle* paddle);
-
-
-
-//--------------------------------------------------------------------
-//! @summary   パドルの描画処理
-//!
-//! @parameter [paddle] 描画するパドル
+//! @parameter [ball] 更新するボール
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void RenderPaddle(Paddle* paddle);
+void UpdateBall(Ball* ball);
 
 
 
 //--------------------------------------------------------------------
-//! @summary   パドルの削除処理
+//! @summary   ボールの描画処理
 //!
-//! @parameter [paddle] 削除するパドル
+//! @parameter [ball] 描画するボール
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void DestroyPaddle(Paddle* paddle);
+void RenderBall(Ball* ball);
+
+
+
+//--------------------------------------------------------------------
+//! @summary   ボールの削除処理
+//!
+//! @parameter [ball] 削除するボール
+//!
+//! @return    なし
+//--------------------------------------------------------------------
+void DestroyBall(Ball* ball);

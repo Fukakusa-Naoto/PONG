@@ -30,7 +30,7 @@ void LimitScreen(Ball* ball);
 void InitializeBall(Ball* ball, const Vector2* position)
 {
 	// ゲームオブジェクトの初期化処理
-	InitializeGameObject(&ball->gameObject, position, &GetVector2One(), 1);
+	InitializeGameObject(&ball->gameObject, position, &CreateVector2(BALL_SPEED, BALL_SPEED), 1);
 
 	// パドルサイズの作成
 	Vector2 size = CreateVector2(BALL_WIDTH, BALL_HEIGHT);
@@ -110,6 +110,22 @@ void ResetBall(Ball* ball)
 
 	// 位置同期
 	SetPositionBoxCollider(&ball->boxCollider, &ball->gameObject.position);
+}
+
+
+
+//--------------------------------------------------------------------
+//! @summary   ボールが画面のどちらから出たか
+//!
+//! @parameter [ball] 調べるボール
+//!
+//! @return    出た方向の値
+//--------------------------------------------------------------------
+SideID GetOutSide(const Ball* ball)
+{
+	if (ball->gameObject.position.x <= 0) return SIDE_LEFT;
+	else if (ball->gameObject.position.x >= SCREEN_WIDTH) return SIDE_RIGHT;
+	else return SIDE_NONE;
 }
 
 

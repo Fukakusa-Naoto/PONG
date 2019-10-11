@@ -15,14 +15,14 @@
 
 // 列挙型の宣言 ============================================================
 //ゲームに必要なシーンのIDを登録
-enum tag_SceneID
+enum Tag_SceneID
 {
 	SCENE_PLAY,		// プレイ
 	SCENE_LOGO,		// ロゴ
 	SCENE_TITLE,	// タイトル
 	SCENE_NONE,		// なし、登録されているシーンの数
 };
-typedef enum tag_SceneID SceneID;
+typedef enum Tag_SceneID SceneID;
 
 
 // 関数の宣言 ==============================================================

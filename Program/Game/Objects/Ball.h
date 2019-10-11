@@ -16,6 +16,7 @@
 // <自作ヘッダファイル>
 #include "GameObject.h"
 #include "../GameMain.h"
+#include "../Scenes/PlayScene.h"
 
 
 // 定数の定義 ==============================================================
@@ -28,6 +29,9 @@
 #define BALL_START_POSITION_X (SCREEN_CENTER_X)
 // ボールの初期位置 Y
 #define BALL_START_POSITION_Y (SCREEN_CENTER_Y)
+
+// ボールの速さ
+#define BALL_SPEED (5.0f)
 
 
 // 構造体の定義 ============================================================
@@ -97,3 +101,14 @@ void DestroyBall(Ball* ball);
 //! @return    なし
 //--------------------------------------------------------------------
 void ResetBall(Ball* ball);
+
+
+
+//--------------------------------------------------------------------
+//! @summary   ボールが画面のどちらから出たか
+//!
+//! @parameter [ball] 調べるボール
+//!
+//! @return    出た方向の値
+//--------------------------------------------------------------------
+SideID GetOutSide(const Ball* ball);

@@ -26,6 +26,11 @@ Ball g_ball;
 
 
 // 関数の定義 ==============================================================
+// 試合の判定処理
+void JudgeGame(void);
+
+
+// 関数の定義 ==============================================================
 //--------------------------------------------------------------------
 //! @summary   プレイシーンの初期化処理
 //!
@@ -60,6 +65,9 @@ void UpdatePlayScene(void)
 	UpdatePaddle(&g_rightPaddle);
 	// ボールの更新処理
 	UpdateBall(&g_ball);
+
+	// 試合の判定処理
+	JudgeGame();
 }
 
 
@@ -98,4 +106,28 @@ void FinalizePlayScene(void)
 	DestroyPaddle(&g_rightPaddle);
 	// ボールの削除
 	DestroyBall(&g_ball);
+}
+
+
+
+//--------------------------------------------------------------------
+//! @summary   試合の判定処理
+//!
+//! @parameter [void] なし
+//!
+//! @return    なし
+//--------------------------------------------------------------------
+void JudgeGame(void)
+{
+	// 得点の判定
+	if (GetOutSide(&g_ball) == SIDE_LEFT)	// 左
+	{
+		// ボールを元の位置に戻す
+		ResetBall(&g_ball);
+	}
+	else if (GetOutSide(&g_ball) == SIDE_RIGHT)	// 右
+	{
+		// ボールを元の位置に戻す
+		ResetBall(&g_ball);
+	}
 }

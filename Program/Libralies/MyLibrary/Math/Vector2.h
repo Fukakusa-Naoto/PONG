@@ -172,3 +172,44 @@ static Vector2 SceleVector2(const Vector2* vector2, const Vector2* scale)
 	answer.y = vector2->y * scale->y;
 	return answer;
 }
+
+
+//--------------------------------------------------------------------
+//! @summary   ƒxƒNƒgƒ‹‚ÌX¬•ª‚ð”½“]‚³‚¹‚é
+//!
+//! @parameter [vector2] ”½“]‚³‚¹‚évector2
+//!
+//! @return    ‚È‚µ
+//--------------------------------------------------------------------
+static void TurnOverVector2X(Vector2* vector2)
+{
+	vector2->x *= -1.0f;
+}
+
+
+
+static void TurnOverVector2IntX(Vector2Int* vector2)
+{
+	vector2->x *= -1;
+}
+
+
+
+//--------------------------------------------------------------------
+//! @summary   ƒxƒNƒgƒ‹‚ÌY¬•ª‚ð”½“]‚³‚¹‚é
+//!
+//! @parameter [vector2] ”½“]‚³‚¹‚évector2
+//!
+//! @return    ‚È‚µ
+//--------------------------------------------------------------------
+static void TurnOverVector2Y(Vector2* vector2)
+{
+	vector2->y *= -1.0f;
+}
+
+
+
+static void TurnOverVector2IntY(Vector2Int* vector2)
+{
+	vector2->y *= -1;
+}

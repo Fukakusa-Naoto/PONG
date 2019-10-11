@@ -14,6 +14,11 @@
 
 
 // 関数の定義 ==============================================================
+// 画面の上下での移動制限
+void LimitScreen(Ball* ball);
+
+
+// 関数の定義 ==============================================================
 //--------------------------------------------------------------------
 //! @summary   ボールの初期化処理
 //!
@@ -25,7 +30,7 @@
 void InitializeBall(Ball* ball, const Vector2* position)
 {
 	// ゲームオブジェクトの初期化処理
-	InitializeGameObject(&ball->gameObject, position, &GetVector2Zero(), 1);
+	InitializeGameObject(&ball->gameObject, position, &GetVector2One(), 1);
 
 	// パドルサイズの作成
 	Vector2 size = CreateVector2(BALL_WIDTH, BALL_HEIGHT);
@@ -48,8 +53,13 @@ void InitializeBall(Ball* ball, const Vector2* position)
 //--------------------------------------------------------------------
 void UpdateBall(Ball* ball)
 {
+	// ボールの移動
+	MoveGameObject(&ball->gameObject);
+
+	// 移動制限
+	LimitScreen(ball);
+
 	// 位置同期
-	SetPositionPrimitiveBox(&ball->primitiveBox, &ball->gameObject.position);
 	SetPositionBoxCollider(&ball->boxCollider, &ball->gameObject.position);
 }
 
@@ -64,6 +74,9 @@ void UpdateBall(Ball* ball)
 //--------------------------------------------------------------------
 void RenderBall(Ball* ball)
 {
+	// 描画前に位置同期を行う
+	SetPositionPrimitiveBox(&ball->primitiveBox, &ball->gameObject.position);
+
 	DrawPrimitiveBox(&ball->primitiveBox);
 }
 
@@ -79,4 +92,44 @@ void RenderBall(Ball* ball)
 void DestroyBall(Ball* ball)
 {
 	ZeroMemory(ball, sizeof(Ball));
+}
+
+
+
+//--------------------------------------------------------------------
+//! @summary   ボールのリセット処理
+//!
+//! @parameter [ball] リセットするボール
+//!
+//! @return    なし
+//--------------------------------------------------------------------
+void ResetBall(Ball* ball)
+{
+	// 初期位置に戻す
+	ball->gameObject.position = CreateVector2(BALL_START_POSITION_X, BALL_START_POSITION_Y);
+
+	// 位置同期
+	SetPositionBoxCollider(&ball->boxCollider, &ball->gameObject.position);
+}
+
+
+
+//--------------------------------------------------------------------
+//! @summary   画面の上下での移動制限
+//!
+//! @parameter [ball] 制限をかけるボール
+//!
+//! @return    なし
+//--------------------------------------------------------------------
+void LimitScreen(Ball* ball)
+{
+	// 衝突判定の位置同期を行う
+	SetPositionBoxCollider(&ball->boxCollider, &ball->gameObject.position);
+
+	if ((ball->boxCollider.position.y - (ball->boxCollider.size.y * 0.5f) <= 0)
+		|| ((ball->boxCollider.position.y + (ball->boxCollider.size.y * 0.5f) >= SCREEN_HEIGHT)))
+	{
+		// 反転させる
+		TurnOverVector2Y(&ball->gameObject.velocity);
+	}
 }

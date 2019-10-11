@@ -65,7 +65,7 @@ void UpdateTitleScene(void)
 //--------------------------------------------------------------------
 void RenderTitleScene(void)
 {
-	DrawFormatString(0, 0, COLOR_WHITE, "Title");
+	DrawString(0, 0, "Title", COLOR_WHITE);
 }
 
 

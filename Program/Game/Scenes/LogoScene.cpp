@@ -71,7 +71,7 @@ void UpdateLogoScene(void)
 //--------------------------------------------------------------------
 void RenderLogoScene(void)
 {
-	DrawFormatString(0, 0, COLOR_WHITE, "LOGO");
+	DrawString(0, 0, "LOGO", COLOR_WHITE);
 }
 
 

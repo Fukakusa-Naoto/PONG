@@ -90,6 +90,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game\GameMain.cpp" />
+    <ClCompile Include="Game\Objects\GameObject.cpp" />
     <ClCompile Include="Game\Scenes\LogoScene.cpp" />
     <ClCompile Include="Game\Scenes\PlayScene.cpp" />
     <ClCompile Include="Game\Scenes\SceneManager.cpp" />
@@ -104,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\GameMain.h" />
+    <ClInclude Include="Game\Objects\GameObject.h" />
     <ClInclude Include="Game\Scenes\LogoScene.h" />
     <ClInclude Include="Game\Scenes\PlayScene.h" />
     <ClInclude Include="Game\Scenes\SceneManager.h" />

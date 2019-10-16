@@ -18,6 +18,8 @@
 // 関数の定義 ==============================================================
 // 試合の判定処理
 void JudgeGame(PlaySceneObject* playSceneObject);
+// 衝突判定
+void DetectCollisionPlayScene(PlaySceneObject* playSceneObject);
 
 
 // 関数の定義 ==============================================================
@@ -51,6 +53,9 @@ void UpdatePlayScene(PlaySceneObject* playSceneObject)
 {
 	// 右パドルの入力制御
 	ControlRightPaddle(&playSceneObject->rightPaddle);
+
+	// 衝突判定
+	DetectCollisionPlayScene(playSceneObject);
 
 	// 左パドルの更新処理
 	UpdatePaddle(&playSceneObject->leftPaddle);
@@ -122,5 +127,39 @@ void JudgeGame(PlaySceneObject* playSceneObject)
 	{
 		// ボールを元の位置に戻す
 		ResetBall(&playSceneObject->ball);
+	}
+}
+
+
+
+//--------------------------------------------------------------------
+//! @summary   衝突判定
+//!
+//! @parameter [playSceneObject] プレイシーンで使用するオブジェクト
+//!
+//! @return    なし
+//--------------------------------------------------------------------
+void DetectCollisionPlayScene(PlaySceneObject* playSceneGameObject)
+{
+	// 左パドルとボール
+	if (IsCollideAABB(&playSceneGameObject->leftPaddle.boxCollider, &playSceneGameObject->ball.boxCollider))
+	{
+		// 連続反転防止
+		if (playSceneGameObject->leftPaddle.boxCollider.position.x <= playSceneGameObject->ball.boxCollider.position.x)
+		{
+			// ボールの向きを反転させる
+			TurnOverVector2X(&playSceneGameObject->ball.gameObject.velocity);
+		}
+	}
+
+	// 右パドルとボール
+	if (IsCollideAABB(&playSceneGameObject->rightPaddle.boxCollider, &playSceneGameObject->ball.boxCollider))
+	{
+		// 連続反転防止
+		if (playSceneGameObject->rightPaddle.boxCollider.position.x >= playSceneGameObject->ball.boxCollider.position.x)
+		{
+			// ボールの向きを反転させる
+			TurnOverVector2X(&playSceneGameObject->ball.gameObject.velocity);
+		}
 	}
 }

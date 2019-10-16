@@ -12,6 +12,7 @@
 // <自作ヘッダファイル>
 #include "PlayScene.h"
 #include "SceneManager.h"
+#include "../Controllers/InputPaddleController.h"
 
 
 // 関数の定義 ==============================================================
@@ -48,6 +49,9 @@ void InitializePlayScene(PlaySceneObject* playSceneObject)
 //--------------------------------------------------------------------
 void UpdatePlayScene(PlaySceneObject* playSceneObject)
 {
+	// 右パドルの入力制御
+	ControlRightPaddle(&playSceneObject->rightPaddle);
+
 	// 左パドルの更新処理
 	UpdatePaddle(&playSceneObject->leftPaddle);
 	// 右パドルの更新処理

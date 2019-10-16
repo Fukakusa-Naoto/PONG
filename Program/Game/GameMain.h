@@ -30,6 +30,7 @@
 #define SCREEN_CENTER_X (SCREEN_WIDTH  / 2)    // 画面の中央(X座標)
 #define SCREEN_CENTER_Y (SCREEN_HEIGHT / 2)    // 画面の中央(Y座標)
 
+
 // 構造体の定義 ============================================================
 struct Tag_GameMainObject
 {
@@ -37,6 +38,8 @@ struct Tag_GameMainObject
 	PlaySceneObject playSceneObject;
 	// タイトルシーンで使用するオブジェクト
 	TitleSceneObject titleSceneObject;
+	// ロゴシーンで使用するオブジェクト
+	LogoSceneObject logoSceneObject;
 };
 typedef struct Tag_GameMainObject GameMainObject;
 

@@ -48,6 +48,9 @@ void InitializePaddle(Paddle* paddle, Vector2* position)
 //--------------------------------------------------------------------
 void UpdatePaddle(Paddle* paddle)
 {
+	// ƒpƒhƒ‹‚ÌˆÚ“®ˆ—
+	MoveGameObject(&paddle->gameObject);
+
 	// ˆÊ’u“¯Šú
 	SetPositionPrimitiveBox(&paddle->primitiveBox, &paddle->gameObject.position);
 	SetPositionBoxCollider(&paddle->boxCollider, &paddle->gameObject.position);

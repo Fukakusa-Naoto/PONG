@@ -73,7 +73,7 @@ void InitializeScene(GameMainObject* gameMainObject)
 		InitializePlayScene(&gameMainObject->playSceneObject);
 		break;
 	case SCENE_LOGO:	// ロゴ
-		InitializeLogoScene();
+		InitializeLogoScene(&gameMainObject->logoSceneObject);
 		break;
 	case SCENE_TITLE:	// タイトル
 		InitializeTitleScene(&gameMainObject->titleSceneObject);
@@ -105,7 +105,7 @@ void UpdateScene(GameMainObject* gameMainObject)
 		UpdatePlayScene(&gameMainObject->playSceneObject);
 		break;
 	case SCENE_LOGO:	// ロゴ
-		UpdateLogoScene();
+		UpdateLogoScene(&gameMainObject->logoSceneObject);
 		break;
 	case SCENE_TITLE:	// タイトル
 		UpdateTitleScene(&gameMainObject->titleSceneObject);
@@ -134,7 +134,7 @@ void RenderScene(GameMainObject* gameMainObject)
 		RenderPlayScene(&gameMainObject->playSceneObject);
 		break;
 	case SCENE_LOGO:	// ロゴ
-		RenderLogoScene();
+		RenderLogoScene(&gameMainObject->logoSceneObject);
 		break;
 	case SCENE_TITLE:	// タイトル
 		RenderTitleScene(&gameMainObject->titleSceneObject);
@@ -163,7 +163,7 @@ void FinalizeScene(GameMainObject* gameMainObject)
 		FinalizePlayScene(&gameMainObject->playSceneObject);
 		break;
 	case SCENE_LOGO:	// ロゴ
-		FinalizeLogoScene();
+		FinalizeLogoScene(&gameMainObject->logoSceneObject);
 		break;
 	case SCENE_TITLE:	// タイトル
 		FinalizeTitleScene(&gameMainObject->titleSceneObject);

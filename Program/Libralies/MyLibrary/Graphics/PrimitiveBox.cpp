@@ -1,34 +1,19 @@
 //__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/
-//! @file		PrimitiveBox.h
+//! @file		PrimitiveBox.cpp
 //!
-//! @summary	矩形の描画に関するヘッダファイル
+//! @summary	矩形の描画に関するソースファイル
 //!
 //! @date		2019.10.11
 //!
 //! @author		深草直斗
 //__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/
 
-// 多重インクルードの防止 ===================================================
-#pragma once
+// ヘッダファイルの読み込み =================================================
+// <自作ヘッダファイル>
+#include "PrimitiveBox.h"
 
 
-// 構造体の定義 ============================================================
-struct Tag_PrimitiveBox
-{
-	// 描画する中心座標
-	Vector2 position;
-	// 描画する幅と高さ（x:幅, y:高さ）
-	Vector2 size;
-	// 色
-	unsigned int color;
-	// 塗りつぶしフラグ（TRUE:塗りつぶす, FALSE:塗りつぶさない）
-	BOOL fillFlag;
-};
-typedef struct Tag_PrimitiveBox PrimitiveBox;
-
-
-
-// 関数の宣言 ==============================================================
+// 関数の定義 ==============================================================
 //--------------------------------------------------------------------
 //! @summary   矩形の初期化処理
 //!
@@ -40,7 +25,13 @@ typedef struct Tag_PrimitiveBox PrimitiveBox;
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void InitializePrimitiveBox(PrimitiveBox* box, Vector2* position, Vector2* size, unsigned int color, BOOL fillFlag);
+void InitializePrimitiveBox(PrimitiveBox* box, Vector2* position, Vector2* size, unsigned int color, BOOL fillFlag)
+{
+	box->position = CreateVector2(position->x, position->y);
+	box->size = CreateVector2(size->x, size->y);
+	box->color = color;
+	box->fillFlag = fillFlag;
+}
 
 
 
@@ -52,7 +43,10 @@ void InitializePrimitiveBox(PrimitiveBox* box, Vector2* position, Vector2* size,
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void SetPositionPrimitiveBox(PrimitiveBox* box, Vector2* position);
+void SetPositionPrimitiveBox(PrimitiveBox* box, Vector2* position)
+{
+	box->position = CreateVector2(position->x, position->y);
+}
 
 
 
@@ -63,4 +57,14 @@ void SetPositionPrimitiveBox(PrimitiveBox* box, Vector2* position);
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void DrawPrimitiveBox(PrimitiveBox* box);
+void DrawPrimitiveBox(PrimitiveBox* box)
+{
+	// 左上、右下の計算
+	float top = box->position.y - (box->size.y * 0.5f);
+	float bottom = box->position.y + (box->size.y * 0.5f);
+	float right = box->position.x + (box->size.x * 0.5f);
+	float left = box->position.x - (box->size.x * 0.5f);
+
+	// 描画
+	DrawBoxAA(left, top, right, bottom, box->color, box->fillFlag);
+}

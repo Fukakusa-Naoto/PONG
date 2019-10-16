@@ -1,30 +1,19 @@
 //__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/
-//! @file		BoxCollider.h
+//! @file		BoxCollider.cpp
 //!
-//! @summary	衝突判定に使用する矩形データのヘッダファイル
+//! @summary	衝突判定に使用する矩形データのソースファイル
 //!
 //! @date		2019.10.11
 //!
 //! @author		深草直斗
 //__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/
 
-// 多重インクルードの防止 ===================================================
-#pragma once
+// ヘッダファイルの読み込み =================================================
+// <自作ヘッダファイル>
+#include "BoxCollider.h"
 
 
-// 構造体の定義 ============================================================
-struct Tag_BoxCollider
-{
-	// 座標
-	Vector2 position;
-	// サイズ
-	Vector2 size;
-};
-typedef struct Tag_BoxCollider BoxCollider;
-
-
-
-// 関数の宣言 ==============================================================
+// 関数の定義 ==============================================================
 //--------------------------------------------------------------------
 //! @summary   BoxColliderの初期化処理
 //!
@@ -34,7 +23,11 @@ typedef struct Tag_BoxCollider BoxCollider;
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void InitializeBoxCollider(BoxCollider* collider, Vector2* position, Vector2* size);
+void InitializeBoxCollider(BoxCollider* collider, Vector2* position, Vector2* size)
+{
+	collider->position = CreateVector2(position->x, position->y);
+	collider->size = CreateVector2(size->x, size->y);
+}
 
 
 
@@ -46,7 +39,10 @@ void InitializeBoxCollider(BoxCollider* collider, Vector2* position, Vector2* si
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void SetPositionBoxCollider(BoxCollider* collider, Vector2* position);
+void SetPositionBoxCollider(BoxCollider* collider, Vector2* position)
+{
+	collider->position = CreateVector2(position->x, position->y);
+}
 
 
 
@@ -59,4 +55,14 @@ void SetPositionBoxCollider(BoxCollider* collider, Vector2* position);
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void DispleyBoxCollider(BoxCollider* collider, unsigned int color, BOOL fillFlag);
+ void DispleyBoxCollider(BoxCollider* collider, unsigned int color, BOOL fillFlag)
+{
+	// 左上、右下の計算
+	float top = collider->position.y - (collider->size.y * 0.5f);
+	float bottom = collider->position.y + (collider->size.y * 0.5f);
+	float right = collider->position.x + (collider->size.x * 0.5f);
+	float left = collider->position.x - (collider->size.x * 0.5f);
+
+	// 描画
+	DrawBoxAA(left, top, right, bottom, color, fillFlag);
+}

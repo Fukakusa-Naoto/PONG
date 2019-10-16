@@ -1,7 +1,7 @@
 //__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/
 //! @file		Sprite.h
 //!
-//! @summary	Spriteに関するヘッダファイル
+//! @summary	画像描画に関するヘッダファイル
 //!
 //! @date		2019.10.11
 //!
@@ -36,7 +36,7 @@ typedef struct Tag_Sprite Sprite;
 
 
 
-// 関数の定義 ==============================================================
+// 関数の宣言 ==============================================================
 //--------------------------------------------------------------------
 //! @summary   画像の描画
 //!
@@ -44,14 +44,4 @@ typedef struct Tag_Sprite Sprite;
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-static void DrawSprite(const Sprite* sprite)
-{
-	DrawRectRotaGraphF(
-		sprite->position.x, sprite->position.y,
-		sprite->uv.x, sprite->uv.y,
-		sprite->size.x, sprite->size.y,
-		sprite->scale,
-		sprite->angle, sprite->handle,
-		sprite->transFlag,
-		sprite->turnFlag);
-}
+void DrawSprite(Sprite* sprite);

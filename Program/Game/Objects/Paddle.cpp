@@ -22,7 +22,7 @@
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void InitializePaddle(Paddle* paddle, const Vector2* position)
+void InitializePaddle(Paddle* paddle, Vector2* position)
 {
 	// ゲームオブジェクトの初期化処理
 	InitializeGameObject(&paddle->gameObject, position, &GetVector2Zero(), 1);

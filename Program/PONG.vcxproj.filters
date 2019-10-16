@@ -94,6 +94,18 @@
     <ClCompile Include="Game\Objects\Ball.cpp">
       <Filter>Game\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="Libralies\MyLibrary\Collision\BoxCollider.cpp">
+      <Filter>Library\MyLibrary\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Libralies\MyLibrary\Graphics\PrimitiveBox.cpp">
+      <Filter>Library\MyLibrary\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Libralies\MyLibrary\Graphics\Sprite.cpp">
+      <Filter>Library\MyLibrary\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Libralies\MyLibrary\Math\Vector2.cpp">
+      <Filter>Library\MyLibrary\Math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\GameMain.h">

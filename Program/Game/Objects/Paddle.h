@@ -62,7 +62,7 @@ typedef struct Tag_Paddle Paddle;
 //!
 //! @return    ‚È‚µ
 //--------------------------------------------------------------------
-void InitializePaddle(Paddle* paddle, const Vector2* position);
+void InitializePaddle(Paddle* paddle, Vector2* position);
 
 
 

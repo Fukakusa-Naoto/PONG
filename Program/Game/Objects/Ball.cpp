@@ -27,7 +27,7 @@ void LimitScreen(Ball* ball);
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void InitializeBall(Ball* ball, const Vector2* position)
+void InitializeBall(Ball* ball, Vector2* position)
 {
 	// ゲームオブジェクトの初期化処理
 	InitializeGameObject(&ball->gameObject, position, &CreateVector2(BALL_SPEED, BALL_SPEED), 1);
@@ -121,7 +121,7 @@ void ResetBall(Ball* ball)
 //!
 //! @return    出た方向の値
 //--------------------------------------------------------------------
-SideID GetOutSide(const Ball* ball)
+SideID GetOutSide(Ball* ball)
 {
 	if (ball->gameObject.position.x <= 0) return SIDE_LEFT;
 	else if (ball->gameObject.position.x >= SCREEN_WIDTH) return SIDE_RIGHT;

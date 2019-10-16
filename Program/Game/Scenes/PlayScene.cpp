@@ -12,40 +12,29 @@
 // <自作ヘッダファイル>
 #include "PlayScene.h"
 #include "SceneManager.h"
-#include "../Objects/Paddle.h"
-#include "../Objects/Ball.h"
-
-
-// グローバル変数の定義 =====================================================
-// 左パドル
-Paddle g_leftPaddle;
-// 右パドル
-Paddle g_rightPaddle;
-// ボール
-Ball g_ball;
 
 
 // 関数の定義 ==============================================================
 // 試合の判定処理
-void JudgeGame(void);
+void JudgeGame(PlaySceneObject* playSceneObject);
 
 
 // 関数の定義 ==============================================================
 //--------------------------------------------------------------------
 //! @summary   プレイシーンの初期化処理
 //!
-//! @parameter [void] なし
+//! @parameter [playSceneObject] プレイシーンで使用するオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void InitializePlayScene(void)
+void InitializePlayScene(PlaySceneObject* playSceneObject)
 {
 	// 左パドルの初期化処理
-	InitializePaddle(&g_leftPaddle, &CreateVector2(LEFT_PADDLE_START_POSITION_X, LEFT_PADDLE_START_POSITION_Y));
+	InitializePaddle(&playSceneObject->leftPaddle, &CreateVector2(LEFT_PADDLE_START_POSITION_X, LEFT_PADDLE_START_POSITION_Y));
 	// 右パドルの初期化処理
-	InitializePaddle(&g_rightPaddle, &CreateVector2(RIGHT_PADDLE_START_POSITION_X, RIGHT_PADDLE_START_POSITION_Y));
+	InitializePaddle(&playSceneObject->rightPaddle, &CreateVector2(RIGHT_PADDLE_START_POSITION_X, RIGHT_PADDLE_START_POSITION_Y));
 	// ボールの初期化処理
-	InitializeBall(&g_ball, &CreateVector2(BALL_START_POSITION_X, BALL_START_POSITION_Y));
+	InitializeBall(&playSceneObject->ball, &CreateVector2(BALL_START_POSITION_X, BALL_START_POSITION_Y));
 }
 
 
@@ -53,21 +42,21 @@ void InitializePlayScene(void)
 //--------------------------------------------------------------------
 //! @summary   プレイシーンの更新処理
 //!
-//! @parameter [void] なし
+//! @parameter [playSceneObject] プレイシーンで使用するオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void UpdatePlayScene(void)
+void UpdatePlayScene(PlaySceneObject* playSceneObject)
 {
 	// 左パドルの更新処理
-	UpdatePaddle(&g_leftPaddle);
+	UpdatePaddle(&playSceneObject->leftPaddle);
 	// 右パドルの更新処理
-	UpdatePaddle(&g_rightPaddle);
+	UpdatePaddle(&playSceneObject->rightPaddle);
 	// ボールの更新処理
-	UpdateBall(&g_ball);
+	UpdateBall(&playSceneObject->ball);
 
 	// 試合の判定処理
-	JudgeGame();
+	JudgeGame(playSceneObject);
 }
 
 
@@ -75,18 +64,18 @@ void UpdatePlayScene(void)
 //--------------------------------------------------------------------
 //! @summary   プレイシーンの描画処理
 //!
-//! @parameter [void] なし
+//! @parameter [playSceneObject] プレイシーンで使用するオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void RenderPlayScene(void)
+void RenderPlayScene(PlaySceneObject* playSceneObject)
 {
 	// 左パドルの描画処理
-	RenderPaddle(&g_leftPaddle);
+	RenderPaddle(&playSceneObject->leftPaddle);
 	// 右パドルの描画処理
-	RenderPaddle(&g_rightPaddle);
+	RenderPaddle(&playSceneObject->rightPaddle);
 	// ボールの初期化処理
-	RenderBall(&g_ball);
+	RenderBall(&playSceneObject->ball);
 }
 
 
@@ -94,18 +83,18 @@ void RenderPlayScene(void)
 //--------------------------------------------------------------------
 //! @summary   プレイシーンの終了処理
 //!
-//! @parameter [void] なし
+//! @parameter [playSceneObject] プレイシーンで使用するオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void FinalizePlayScene(void)
+void FinalizePlayScene(PlaySceneObject* playSceneObject)
 {
 	// 左パドルの削除
-	DestroyPaddle(&g_leftPaddle);
+	DestroyPaddle(&playSceneObject->leftPaddle);
 	// 右パドルの削除
-	DestroyPaddle(&g_rightPaddle);
+	DestroyPaddle(&playSceneObject->rightPaddle);
 	// ボールの削除
-	DestroyBall(&g_ball);
+	DestroyBall(&playSceneObject->ball);
 }
 
 
@@ -113,21 +102,21 @@ void FinalizePlayScene(void)
 //--------------------------------------------------------------------
 //! @summary   試合の判定処理
 //!
-//! @parameter [void] なし
+//! @parameter [playSceneObject] プレイシーンで使用するオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void JudgeGame(void)
+void JudgeGame(PlaySceneObject* playSceneObject)
 {
 	// 得点の判定
-	if (GetOutSide(&g_ball) == SIDE_LEFT)	// 左
+	if (GetOutSide(&playSceneObject->ball) == SIDE_LEFT)	// 左
 	{
 		// ボールを元の位置に戻す
-		ResetBall(&g_ball);
+		ResetBall(&playSceneObject->ball);
 	}
-	else if (GetOutSide(&g_ball) == SIDE_RIGHT)	// 右
+	else if (GetOutSide(&playSceneObject->ball) == SIDE_RIGHT)	// 右
 	{
 		// ボールを元の位置に戻す
-		ResetBall(&g_ball);
+		ResetBall(&playSceneObject->ball);
 	}
 }

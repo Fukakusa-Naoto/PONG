@@ -56,7 +56,7 @@ typedef struct Tag_Ball Ball;
 //!
 //! @return    Ç»Çµ
 //--------------------------------------------------------------------
-void InitializeBall(Ball* ball, const Vector2* position);
+void InitializeBall(Ball* ball, Vector2* position);
 
 
 
@@ -111,4 +111,4 @@ void ResetBall(Ball* ball);
 //!
 //! @return    èoÇΩï˚å¸ÇÃíl
 //--------------------------------------------------------------------
-SideID GetOutSide(const Ball* ball);
+SideID GetOutSide(Ball* ball);

@@ -24,7 +24,7 @@
 //!
 //! @return    ‚È‚µ
 //--------------------------------------------------------------------
-void InitializeGameObject(GameObject* gameObject, const Vector2* position, const Vector2* velocity, unsigned int state)
+void InitializeGameObject(GameObject* gameObject, Vector2* position, Vector2* velocity, unsigned int state)
 {
 	gameObject->position = CreateVector2(position->x, position->y);
 	gameObject->velocity = CreateVector2(velocity->x, velocity->y);

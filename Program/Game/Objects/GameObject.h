@@ -37,7 +37,7 @@ typedef struct Tag_GameObject GameObject;
 //!
 //! @return    ‚È‚µ
 //--------------------------------------------------------------------
-void InitializeGameObject(GameObject* gameObject, const Vector2* position, const Vector2* velocity, unsigned int state);
+void InitializeGameObject(GameObject* gameObject, Vector2* position, Vector2* velocity, unsigned int state);
 
 
 

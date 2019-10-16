@@ -13,6 +13,7 @@
 #include "PlayScene.h"
 #include "SceneManager.h"
 #include "../Controllers/InputPaddleController.h"
+#include "../Controllers/CPUPaddleController.h"
 
 
 // 関数の定義 ==============================================================
@@ -53,6 +54,8 @@ void UpdatePlayScene(PlaySceneObject* playSceneObject)
 {
 	// 右パドルの入力制御
 	ControlRightPaddle(&playSceneObject->rightPaddle);
+	// CPUパドルの制御
+	ControlCPUPaddle(&playSceneObject->leftPaddle, &playSceneObject->ball);
 
 	// 衝突判定
 	DetectCollisionPlayScene(playSceneObject);

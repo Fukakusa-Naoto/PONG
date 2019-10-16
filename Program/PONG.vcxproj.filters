@@ -112,6 +112,9 @@
     <ClCompile Include="Game\Controllers\InputPaddleController.cpp">
       <Filter>Game\Controller</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Controllers\CPUPaddleController.cpp">
+      <Filter>Game\Controller</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\GameMain.h">
@@ -181,6 +184,9 @@
       <Filter>Game\Objects</Filter>
     </ClInclude>
     <ClInclude Include="Game\Controllers\InputPaddleController.h">
+      <Filter>Game\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Controllers\CPUPaddleController.h">
       <Filter>Game\Controller</Filter>
     </ClInclude>
   </ItemGroup>

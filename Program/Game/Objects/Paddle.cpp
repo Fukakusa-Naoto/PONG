@@ -11,6 +11,7 @@
 // ヘッダファイルの読み込み =================================================
 // <自作ヘッダファイル>
 #include "Paddle.h"
+#include "../GameMain.h"
 
 
 // 関数の定義 ==============================================================
@@ -51,6 +52,9 @@ void UpdatePaddle(Paddle* paddle)
 	// パドルの移動処理
 	MoveGameObject(&paddle->gameObject);
 
+	// パドルの移動制限
+	LinitAreaPaddle(paddle);
+
 	// 位置同期
 	SetPositionPrimitiveBox(&paddle->primitiveBox, &paddle->gameObject.position);
 	SetPositionBoxCollider(&paddle->boxCollider, &paddle->gameObject.position);
@@ -82,4 +86,28 @@ void RenderPaddle(Paddle* paddle)
 void DestroyPaddle(Paddle* paddle)
 {
 	ZeroMemory(paddle, sizeof(Paddle));
+}
+
+
+
+//--------------------------------------------------------------------
+//! @summary   パドルの移動制限
+//!
+//! @parameter [paddle] 制限をするパドル
+//!
+//! @return    なし
+//--------------------------------------------------------------------
+void LinitAreaPaddle(Paddle* paddle)
+{
+	// 上
+	if (paddle->gameObject.position.y <= PADDLE_LIMIT_AREA_Y)
+	{
+		paddle->gameObject.position.y = PADDLE_LIMIT_AREA_Y;
+	}
+
+	// 下
+	if (paddle->gameObject.position.y >= SCREEN_HEIGHT - PADDLE_LIMIT_AREA_Y)
+	{
+		paddle->gameObject.position.y = SCREEN_HEIGHT - PADDLE_LIMIT_AREA_Y;
+	}
 }

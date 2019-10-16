@@ -12,6 +12,10 @@
 #pragma once
 
 
+// ヘッダファイルの読み込み =================================================
+// <自作ヘッダファイル>
+#include "../GameMain.h"
+
 
 // 列挙型の宣言 ============================================================
 //ゲームに必要なシーンのIDを登録
@@ -51,41 +55,41 @@ void SetStartScene(SceneID startSceneID);
 //--------------------------------------------------------------------
 //! @summary   シーンの初期化処理
 //!
-//! @parameter [void] なし
+//! @parameter [gameMainObject] ゲーム上で使用する全てのオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void InitializeScene(void);
+void InitializeScene(GameMainObject* gameMainObject);
 
 
 
 //--------------------------------------------------------------------
 //! @summary   シーンの更新処理
 //!
-//! @parameter [void] なし
+//! @parameter [gameMainObject] ゲーム上で使用する全てのオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void UpdateScene(void);
+void UpdateScene(GameMainObject* gameMainObject);
 
 
 
 //--------------------------------------------------------------------
 //! @summary   シーンの描画処理
 //!
-//! @parameter [void] なし
+//! @parameter [gameMainObject] ゲーム上で使用する全てのオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void RenderScene(void);
+void RenderScene(GameMainObject* gameMainObject);
 
 
 
 //--------------------------------------------------------------------
 //! @summary   シーンの終了処理
 //!
-//! @parameter [void] なし
+//! @parameter [gameMainObject] ゲーム上で使用する全てのオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void FinalizeScene(void);
+void FinalizeScene(GameMainObject* gameMainObject);

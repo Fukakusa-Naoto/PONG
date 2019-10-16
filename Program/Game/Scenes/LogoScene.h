@@ -12,46 +12,54 @@
 #pragma once
 
 
+// 構造体の定義 ============================================================
+struct Tag_LogoSceneObject
+{
+	// 時間経過カウント
+	float timeCount;
+};
+typedef struct Tag_LogoSceneObject LogoSceneObject;
+
 
 // 関数の宣言 ==============================================================
 //--------------------------------------------------------------------
 //! @summary   ロゴシーンの初期化処理
 //!
-//! @parameter [void] なし
+//! @parameter [logoSceneObject] ロゴシーンで使用するオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void InitializeLogoScene(void);
+void InitializeLogoScene(LogoSceneObject* logoSceneObject);
 
 
 
 //--------------------------------------------------------------------
 //! @summary   ロゴシーンの更新処理
 //!
-//! @parameter [void] なし
+//! @parameter [logoSceneObject] ロゴシーンで使用するオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void UpdateLogoScene(void);
+void UpdateLogoScene(LogoSceneObject* logoSceneObject);
 
 
 
 //--------------------------------------------------------------------
 //! @summary   ロゴシーンの描画処理
 //!
-//! @parameter [void] なし
+//! @parameter [logoSceneObject] ロゴシーンで使用するオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void RenderLogoScene(void);
+void RenderLogoScene(LogoSceneObject* logoSceneObject);
 
 
 
 //--------------------------------------------------------------------
 //! @summary   ロゴシーンの終了処理
 //!
-//! @parameter [void] なし
+//! @parameter [logoSceneObject] ロゴシーンで使用するオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void FinalizeLogoScene(void);
+void FinalizeLogoScene(LogoSceneObject* logoSceneObject);

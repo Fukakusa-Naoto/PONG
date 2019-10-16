@@ -12,6 +12,12 @@
 #pragma once
 
 
+// ヘッダファイルの読み込み =================================================
+// <自作ヘッダファイル>
+#include "Scenes/PlayScene.h"
+#include "Scenes/LogoScene.h"
+#include "Scenes/TitleScene.h"
+
 
 // 定数の定義 ==============================================================
 // ゲームタイトル
@@ -24,46 +30,56 @@
 #define SCREEN_CENTER_X (SCREEN_WIDTH  / 2)    // 画面の中央(X座標)
 #define SCREEN_CENTER_Y (SCREEN_HEIGHT / 2)    // 画面の中央(Y座標)
 
+// 構造体の定義 ============================================================
+struct Tag_GameMainObject
+{
+	// プレイシーンで使用するオブジェクト
+	PlaySceneObject playSceneObject;
+	// タイトルシーンで使用するオブジェクト
+	TitleSceneObject titleSceneObject;
+};
+typedef struct Tag_GameMainObject GameMainObject;
+
 
 // 関数の宣言 ==============================================================
 //--------------------------------------------------------------------
 //! @summary   ゲームの初期化処理
 //!
-//! @parameter [void] なし
+//! @parameter [gameMainObject] ゲーム上で使用する全てのオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void InitializeGame(void);
+void InitializeGame(GameMainObject* gameMainObject);
 
 
 
 //--------------------------------------------------------------------
 //! @summary   ゲームの更新処理
 //!
-//! @parameter [void] なし
+//! @parameter [gameMainObject] ゲーム上で使用する全てのオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void UpdateGame(void);
+void UpdateGame(GameMainObject* gameMainObject);
 
 
 
 //--------------------------------------------------------------------
 //! @summary   ゲームの描画処理
 //!
-//! @parameter [void] なし
+//! @parameter [gameMainObject] ゲーム上で使用する全てのオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void RenderGame(void);
+void RenderGame(GameMainObject* gameMainObject);
 
 
 
 //--------------------------------------------------------------------
 //! @summary   ゲームの終了処理
 //!
-//! @parameter [void] なし
+//! @parameter [gameMainObject] ゲーム上で使用する全てのオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void FinalizeGame(void);
+void FinalizeGame(GameMainObject* gameMainObject);

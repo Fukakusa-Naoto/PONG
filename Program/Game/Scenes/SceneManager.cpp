@@ -11,9 +11,6 @@
 // ヘッダファイルの読み込み =================================================
 // <自作ヘッダファイル>
 #include "SceneManager.h"
-#include "PlayScene.h"
-#include "LogoScene.h"
-#include "TitleScene.h"
 
 
 // グローバル変数の宣言 =====================================================
@@ -25,7 +22,7 @@ static SceneID g_nextSceneID;
 
 // 関数の宣言 ==============================================================
 // シーンの切り替え処理
-void SwitchScene(void);
+void SwitchScene(GameMainObject* gameMainObject);
 
 
 // 関数の定義 ==============================================================
@@ -63,23 +60,23 @@ void SetStartScene(SceneID startSceneID)
 //--------------------------------------------------------------------
 //! @summary   シーンの初期化処理
 //!
-//! @parameter [void] なし
+//! @parameter [gameMainObject] ゲーム上で使用する全てのオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void InitializeScene(void)
+void InitializeScene(GameMainObject* gameMainObject)
 {
 	// シーン別の初期化処理
 	switch (g_currentSceneID)
 	{
 	case SCENE_PLAY:	// プレイ
-		InitializePlayScene();
+		InitializePlayScene(&gameMainObject->playSceneObject);
 		break;
 	case SCENE_LOGO:	// ロゴ
 		InitializeLogoScene();
 		break;
 	case SCENE_TITLE:	// タイトル
-		InitializeTitleScene();
+		InitializeTitleScene(&gameMainObject->titleSceneObject);
 		break;
 	default:
 		// 何もしない
@@ -92,26 +89,26 @@ void InitializeScene(void)
 //--------------------------------------------------------------------
 //! @summary   シーンの更新処理
 //!
-//! @parameter [void] なし
+//! @parameter [gameMainObject] ゲーム上で使用する全てのオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void UpdateScene(void)
+void UpdateScene(GameMainObject* gameMainObject)
 {
 	// シーンの切り替え
-	SwitchScene();
+	SwitchScene(gameMainObject);
 
 	// シーン別の更新処理
 	switch (g_currentSceneID)
 	{
 	case SCENE_PLAY:	// プレイ
-		UpdatePlayScene();
+		UpdatePlayScene(&gameMainObject->playSceneObject);
 		break;
 	case SCENE_LOGO:	// ロゴ
 		UpdateLogoScene();
 		break;
 	case SCENE_TITLE:	// タイトル
-		UpdateTitleScene();
+		UpdateTitleScene(&gameMainObject->titleSceneObject);
 		break;
 	default:
 		// 何もしない
@@ -124,23 +121,23 @@ void UpdateScene(void)
 //--------------------------------------------------------------------
 //! @summary   シーンの描画処理
 //!
-//! @parameter [void] なし
+//! @parameter [gameMainObject] ゲーム上で使用する全てのオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void RenderScene(void)
+void RenderScene(GameMainObject* gameMainObject)
 {
 	// シーン別の描画処理
 	switch (g_currentSceneID)
 	{
 	case SCENE_PLAY:	// プレイ
-		RenderPlayScene();
+		RenderPlayScene(&gameMainObject->playSceneObject);
 		break;
 	case SCENE_LOGO:	// ロゴ
 		RenderLogoScene();
 		break;
 	case SCENE_TITLE:	// タイトル
-		RenderTitleScene();
+		RenderTitleScene(&gameMainObject->titleSceneObject);
 		break;
 	default:
 		// 何もしない
@@ -153,23 +150,23 @@ void RenderScene(void)
 //--------------------------------------------------------------------
 //! @summary   シーンの終了処理
 //!
-//! @parameter [void] なし
+//! @parameter [gameMainObject] ゲーム上で使用する全てのオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void FinalizeScene(void)
+void FinalizeScene(GameMainObject* gameMainObject)
 {
 	// シーン別の終了処理
 	switch (g_currentSceneID)
 	{
 	case SCENE_PLAY:	// プレイ
-		FinalizePlayScene();
+		FinalizePlayScene(&gameMainObject->playSceneObject);
 		break;
 	case SCENE_LOGO:	// ロゴ
 		FinalizeLogoScene();
 		break;
 	case SCENE_TITLE:	// タイトル
-		FinalizeTitleScene();
+		FinalizeTitleScene(&gameMainObject->titleSceneObject);
 		break;
 	default:
 		// 何もしない
@@ -183,20 +180,20 @@ void FinalizeScene(void)
 //--------------------------------------------------------------------
 //! @summary   シーンの切り替え処理
 //!
-//! @parameter [void] なし
+//! @parameter [gameMainObject] ゲーム上で使用する全てのオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void SwitchScene(void)
+void SwitchScene(GameMainObject* gameMainObject)
 {
 	// シーンの変更があった場合
 	if (g_nextSceneID != g_currentSceneID)
 	{
 		// 現在のシーンの終了処理
-		FinalizeScene();
+		FinalizeScene(gameMainObject);
 		// シーンIDを新しくする
 		g_currentSceneID = g_nextSceneID;
 		// 新しいシーンの初期化処理
-		InitializeScene();
+		InitializeScene(gameMainObject);
 	}
 }

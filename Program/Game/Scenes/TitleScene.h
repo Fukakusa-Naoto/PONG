@@ -12,46 +12,53 @@
 #pragma once
 
 
+// 構造体の定義 ============================================================
+struct Tag_TitleSceneObject
+{
+
+};
+typedef struct Tag_TitleSceneObject TitleSceneObject;
+
 
 // 関数の宣言 ==============================================================
 //--------------------------------------------------------------------
 //! @summary   タイトルシーンの初期化処理
 //!
-//! @parameter [void] なし
+//! @parameter [titleSceneObject] タイトルシーンで使用するオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void InitializeTitleScene(void);
+void InitializeTitleScene(TitleSceneObject* titleSceneObject);
 
 
 
 //--------------------------------------------------------------------
 //! @summary   タイトルシーンの更新処理
 //!
-//! @parameter [void] なし
+//! @parameter [titleSceneObject] タイトルシーンで使用するオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void UpdateTitleScene(void);
+void UpdateTitleScene(TitleSceneObject* titleSceneObject);
 
 
 
 //--------------------------------------------------------------------
 //! @summary   タイトルシーンの描画処理
 //!
-//! @parameter [void] なし
+//! @parameter [titleSceneObject] タイトルシーンで使用するオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void RenderTitleScene(void);
+void RenderTitleScene(TitleSceneObject* titleSceneObject);
 
 
 
 //--------------------------------------------------------------------
 //! @summary   タイトルシーンの終了処理
 //!
-//! @parameter [void] なし
+//! @parameter [titleSceneObject] タイトルシーンで使用するオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void FinalizeTitleScene(void);
+void FinalizeTitleScene(TitleSceneObject* titleSceneObject);

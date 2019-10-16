@@ -68,22 +68,24 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	// 描画先を裏画面に設定
 	SetDrawScreen(DX_SCREEN_BACK);
 
+	// ゲームで使用する全てのオブジェクトの作成
+	GameMainObject gameMainObject;
 
 	// ゲームの処理
-	InitializeGame();    // ゲームの初期化処理
+	InitializeGame(&gameMainObject);    // ゲームの初期化処理
 
 	while (!ProcessMessage() && !CheckHitKey(EXIT_KEY))
 	{
 		UpdateSystem();        // システムの更新
 
-		UpdateGame();          // ゲームの更新処理
-		RenderGame();          // ゲームの描画処理
+		UpdateGame(&gameMainObject);          // ゲームの更新処理
+		RenderGame(&gameMainObject);          // ゲームの描画処理
 
 		ScreenFlip();          // 裏画面の内容を表画面に反映
 		ClearDrawScreen();     // 裏画面の消去
 	}
 
-	FinalizeGame();      // ゲームの終了処理
+	FinalizeGame(&gameMainObject);      // ゲームの終了処理
 
 
 	// DXライブラリの終了処理

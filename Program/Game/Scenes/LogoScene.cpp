@@ -19,23 +19,18 @@
 #define CHANGE_SCENE_TIME (3.0f)
 
 
-// グローバル変数の定義 =====================================================
-// 時間経過カウント
-float g_timeCount;
-
-
 // 関数の定義 ==============================================================
 //--------------------------------------------------------------------
 //! @summary   ロゴシーンの初期化処理
 //!
-//! @parameter [void] なし
+//! @parameter [logoSceneObject] ロゴシーンで使用するオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void InitializeLogoScene(void)
+void InitializeLogoScene(LogoSceneObject* logoSceneObject)
 {
 	// カウントの初期化
-	g_timeCount = 0.0f;
+	logoSceneObject->timeCount = 0.0f;
 }
 
 
@@ -43,17 +38,17 @@ void InitializeLogoScene(void)
 //--------------------------------------------------------------------
 //! @summary   ロゴシーンの更新処理
 //!
-//! @parameter [void] なし
+//! @parameter [logoSceneObject] ロゴシーンで使用するオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void UpdateLogoScene(void)
+void UpdateLogoScene(LogoSceneObject* logoSceneObject)
 {
 	// カウントの更新
-	g_timeCount += GetFrameDeltaTime();
+	logoSceneObject->timeCount += GetFrameDeltaTime();
 
 	// 3秒が経過する
-	if (g_timeCount >= CHANGE_SCENE_TIME)
+	if (logoSceneObject->timeCount >= CHANGE_SCENE_TIME)
 	{
 		// タイトルシーンへ遷移する
 		ChangeScene(SCENE_TITLE);
@@ -65,11 +60,11 @@ void UpdateLogoScene(void)
 //--------------------------------------------------------------------
 //! @summary   ロゴシーンの描画処理
 //!
-//! @parameter [void] なし
+//! @parameter [logoSceneObject] ロゴシーンで使用するオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void RenderLogoScene(void)
+void RenderLogoScene(LogoSceneObject* logoSceneObject)
 {
 	DrawString(0, 0, "LOGO", COLOR_WHITE);
 }
@@ -79,11 +74,11 @@ void RenderLogoScene(void)
 //--------------------------------------------------------------------
 //! @summary   ロゴシーンの終了処理
 //!
-//! @parameter [void] なし
+//! @parameter [logoSceneObject] ロゴシーンで使用するオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void FinalizeLogoScene(void)
+void FinalizeLogoScene(LogoSceneObject* logoSceneObject)
 {
 
 }

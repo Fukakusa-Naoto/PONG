@@ -14,24 +14,15 @@
 #include "SceneManager.h"
 
 
-// 定数の定義 ==============================================================
-// シーン変更までの時間
-#define CHANGE_SCENE_TIME (3.0f)
-
-
-// グローバル変数の定義 =====================================================
-
-
-
 // 関数の定義 ==============================================================
 //--------------------------------------------------------------------
 //! @summary   タイトルシーンの初期化処理
 //!
-//! @parameter [void] なし
+//! @parameter [titleSceneObject] タイトルシーンで使用するオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void InitializeTitleScene(void)
+void InitializeTitleScene(TitleSceneObject* titleSceneObject)
 {
 }
 
@@ -40,11 +31,11 @@ void InitializeTitleScene(void)
 //--------------------------------------------------------------------
 //! @summary   タイトルシーンの更新処理
 //!
-//! @parameter [void] なし
+//! @parameter [titleSceneObject] タイトルシーンで使用するオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void UpdateTitleScene(void)
+void UpdateTitleScene(TitleSceneObject* titleSceneObject)
 {
 	// スペースキーが入力される
 	if (IsButtonPressed(PAD_INPUT_10))
@@ -59,11 +50,11 @@ void UpdateTitleScene(void)
 //--------------------------------------------------------------------
 //! @summary   タイトルシーンの描画処理
 //!
-//! @parameter [void] なし
+//! @parameter [titleSceneObject] タイトルシーンで使用するオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void RenderTitleScene(void)
+void RenderTitleScene(TitleSceneObject* titleSceneObject)
 {
 	DrawString(0, 0, "Title", COLOR_WHITE);
 }
@@ -73,11 +64,11 @@ void RenderTitleScene(void)
 //--------------------------------------------------------------------
 //! @summary   タイトルシーンの終了処理
 //!
-//! @parameter [void] なし
+//! @parameter [titleSceneObject] タイトルシーンで使用するオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void FinalizeTitleScene(void)
+void FinalizeTitleScene(TitleSceneObject* titleSceneObject)
 {
 
 }

@@ -14,24 +14,21 @@
 #include "Scenes/SceneManager.h"
 
 
-// グローバル変数の定義 =====================================================
-
-
 // 関数の定義 ==============================================================
 //--------------------------------------------------------------------
 //! @summary   ゲームの初期化処理
 //!
-//! @parameter [void] なし
+//! @parameter [gameMainObject] ゲーム上で使用する全てのオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void InitializeGame(void)
+void InitializeGame(GameMainObject* gameMainObject)
 {
 	// 最初のシーンを設定
 	SetStartScene(SCENE_PLAY);
 
 	// シーンの初期化処理
-	InitializeScene();
+	InitializeScene(gameMainObject);
 }
 
 
@@ -39,14 +36,14 @@ void InitializeGame(void)
 //--------------------------------------------------------------------
 //! @summary   ゲームの更新処理
 //!
-//! @parameter [void] なし
+//! @parameter [gameMainObject] ゲーム上で使用する全てのオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void UpdateGame(void)
+void UpdateGame(GameMainObject* gameMainObject)
 {
 	// シーンの更新処理
-	UpdateScene();
+	UpdateScene(gameMainObject);
 }
 
 
@@ -54,14 +51,14 @@ void UpdateGame(void)
 //--------------------------------------------------------------------
 //! @summary   ゲームの描画処理
 //!
-//! @parameter [void] なし
+//! @parameter [gameMainObject] ゲーム上で使用する全てのオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void RenderGame(void)
+void RenderGame(GameMainObject* gameMainObject)
 {
 	// シーンの描画処理
-	RenderScene();
+	RenderScene(gameMainObject);
 }
 
 
@@ -69,12 +66,12 @@ void RenderGame(void)
 //--------------------------------------------------------------------
 //! @summary   ゲームの終了処理
 //!
-//! @parameter [void] なし
+//! @parameter [gameMainObject] ゲーム上で使用する全てのオブジェクト
 //!
 //! @return    なし
 //--------------------------------------------------------------------
-void FinalizeGame(void)
+void FinalizeGame(GameMainObject* gameMainObject)
 {
 	// シーンの終了処理
-	FinalizeScene();
+	FinalizeScene(gameMainObject);
 }

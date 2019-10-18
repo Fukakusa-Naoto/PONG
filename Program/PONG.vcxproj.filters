@@ -115,6 +115,9 @@
     <ClCompile Include="Game\Controllers\CPUPaddleController.cpp">
       <Filter>Game\Controller</Filter>
     </ClCompile>
+    <ClCompile Include="Libralies\MyLibrary\Math\Math.cpp">
+      <Filter>Library\MyLibrary\Math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\GameMain.h">
@@ -188,6 +191,9 @@
     </ClInclude>
     <ClInclude Include="Game\Controllers\CPUPaddleController.h">
       <Filter>Game\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="Libralies\MyLibrary\Math\Math.h">
+      <Filter>Library\MyLibrary\Math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

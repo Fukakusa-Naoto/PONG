@@ -150,8 +150,8 @@ void DetectCollisionPlayScene(PlaySceneObject* playSceneGameObject)
 		// ˜A‘±”½“]–hŽ~
 		if (playSceneGameObject->leftPaddle.boxCollider.position.x <= playSceneGameObject->ball.boxCollider.position.x)
 		{
-			// ƒ{[ƒ‹‚ÌŒü‚«‚ð”½“]‚³‚¹‚é
-			TurnOverVector2X(&playSceneGameObject->ball.gameObject.velocity);
+			// ”½“]‚³‚¹‚é
+			ReflectionBall(&playSceneGameObject->ball, &playSceneGameObject->leftPaddle);
 		}
 	}
 
@@ -161,8 +161,8 @@ void DetectCollisionPlayScene(PlaySceneObject* playSceneGameObject)
 		// ˜A‘±”½“]–hŽ~
 		if (playSceneGameObject->rightPaddle.boxCollider.position.x >= playSceneGameObject->ball.boxCollider.position.x)
 		{
-			// ƒ{[ƒ‹‚ÌŒü‚«‚ð”½“]‚³‚¹‚é
-			TurnOverVector2X(&playSceneGameObject->ball.gameObject.velocity);
+			// ”½“]‚³‚¹‚é
+			ReflectionBall(&playSceneGameObject->ball, &playSceneGameObject->rightPaddle);
 		}
 	}
 }

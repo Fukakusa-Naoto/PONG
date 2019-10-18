@@ -9,6 +9,9 @@
 //__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/
 
 // ヘッダファイルの読み込み =================================================
+// <標準ヘッダファイル>
+#include <math.h>
+
 // <自作ヘッダファイル>
 #include "Vector2.h"
 
@@ -198,4 +201,38 @@ void TurnOverVector2Y(Vector2* vector2)
 void TurnOverVector2IntY(Vector2Int* vector2)
 {
 	vector2->y *= -1;
+}
+
+
+
+//--------------------------------------------------------------------
+//! @summary   ベクトルの正規化
+//!
+//! @parameter [vector] 正規化するベクトル
+//!
+//! @return    なし
+//--------------------------------------------------------------------
+void NormalizeVector2(Vector2* vector)
+{
+	float c = sqrtf(powf(vector->x, 2.0f) + powf(vector->y, 2.0f));
+	vector->x /= c;
+	vector->y /= c;
+}
+
+
+
+//--------------------------------------------------------------------
+//! @summary   方向と速さから速度を作成する
+//!
+//! @parameter [direction] 方向ベクトル
+//! @parameter [speed] 速さ
+//!
+//! @return    作成された速度
+//--------------------------------------------------------------------
+Vector2 CreateVelocity(Vector2* direction, float speed)
+{
+	// 方向ベクトルの正規化
+	NormalizeVector2(direction);
+
+	return SceleVector2(direction, &CreateVector2(speed, speed));
 }

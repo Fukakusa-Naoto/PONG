@@ -41,6 +41,11 @@ enum Tag_SideID
 typedef enum Tag_SideID SideID;
 
 
+// 構造体の宣言 ============================================================
+struct Tag_Paddle; typedef Tag_Paddle Paddle;
+
+
+
 // 構造体の定義 ============================================================
 struct Tag_Ball
 {
@@ -119,3 +124,15 @@ void ResetBall(Ball* ball);
 //! @return    出た方向の値
 //--------------------------------------------------------------------
 SideID GetOutSide(Ball* ball);
+
+
+
+//--------------------------------------------------------------------
+//! @summary   ボールの反射処理
+//!
+//! @parameter [ball] 反射させるボール
+//! @parameter [paddle] 衝突したパドル情報
+//!
+//! @return    なし
+//--------------------------------------------------------------------
+void ReflectionBall(Ball* ball, Paddle* paddle);

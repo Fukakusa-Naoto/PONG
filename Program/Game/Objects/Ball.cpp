@@ -9,6 +9,9 @@
 //__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/
 
 // ヘッダファイルの読み込み =================================================
+// <標準ヘッダファイル>
+#include <math.h>
+
 // <自作ヘッダファイル>
 #include "Ball.h"
 #include "../GameMain.h"
@@ -31,7 +34,7 @@ void LimitScreen(Ball* ball);
 void InitializeBall(Ball* ball, Vector2* position)
 {
 	// ゲームオブジェクトの初期化処理
-	InitializeGameObject(&ball->gameObject, position, &CreateVector2(BALL_SPEED, BALL_SPEED), 1);
+	InitializeGameObject(&ball->gameObject, position, &CreateVelocity(&CreateVector2(1.0f, 0.0f), BALL_SPEED), 1);
 
 	// パドルサイズの作成
 	Vector2 size = CreateVector2(BALL_WIDTH, BALL_HEIGHT);
@@ -148,5 +151,38 @@ void LimitScreen(Ball* ball)
 	{
 		// 反転させる
 		TurnOverVector2Y(&ball->gameObject.velocity);
+	}
+}
+
+
+
+//--------------------------------------------------------------------
+//! @summary   ボールの反射処理
+//!
+//! @parameter [ball] 反射させるボール
+//! @parameter [paddle] 衝突したパドル情報
+//!
+//! @return    なし
+//--------------------------------------------------------------------
+void ReflectionBall(Ball* ball, Paddle* paddle)
+{
+	// ボールの向きを反転させる
+	TurnOverVector2X(&ball->gameObject.velocity);
+
+	// ボールの方向を記録
+	float direction = (ball->gameObject.velocity.x > 0.0f) ? 1.0f : -1.0f;
+
+	// 衝突位置で角度を変える
+	ball->gameObject.velocity.y = (ball->boxCollider.position.y - paddle->boxCollider.position.y) * 0.5f;
+
+	// 速度を作成し書き換える
+	ball->gameObject.velocity = CreateVelocity(&ball->gameObject.velocity, BALL_SPEED);
+
+	// ボールが垂直に移動したときの対策
+	if (Approximately((float)fabs(ball->gameObject.velocity.y), 5.0f))
+	{
+		ball->gameObject.velocity.x = direction;
+		// 速度を作り直す
+		ball->gameObject.velocity = CreateVelocity(&ball->gameObject.velocity, BALL_SPEED);
 	}
 }

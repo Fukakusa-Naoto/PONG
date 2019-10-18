@@ -15,6 +15,7 @@
 
 // ヘッダファイルの読み込み =================================================
 #include "Math/Vector2.h"
+#include "Math/Math.h"
 #include "Graphics/Sprite.h"
 #include "Graphics/PrimitiveBox.h"
 #include "Collision/BoxCollider.h"

@@ -126,3 +126,26 @@ void TurnOverVector2IntX(Vector2Int* vector2);
 //--------------------------------------------------------------------
 void TurnOverVector2Y(Vector2* vector2);
 void TurnOverVector2IntY(Vector2Int* vector2);
+
+
+
+//--------------------------------------------------------------------
+//! @summary   ベクトルの正規化
+//!
+//! @parameter [vector] 正規化するベクトル
+//!
+//! @return    なし
+//--------------------------------------------------------------------
+void NormalizeVector2(Vector2* vector);
+
+
+
+//--------------------------------------------------------------------
+//! @summary   方向と速さから速度を作成する
+//!
+//! @parameter [direction] 方向ベクトル
+//! @parameter [speed] 速さ
+//!
+//! @return    作成された速度
+//--------------------------------------------------------------------
+Vector2 CreateVelocity(Vector2* direction, float speed);
